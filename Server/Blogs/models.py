@@ -89,3 +89,24 @@ class BlogContent(models.Model):
     def __str__(self):
         return f'{self.blog.title}'
     
+
+
+class BlogComment(models.Model):
+    blog = models.ForeignKey(
+        Blog,
+        verbose_name="بلاگ",
+        on_delete=models.CASCADE,
+        related_name='blog_comments'
+    )
+
+    content = models.TextField(verbose_name="محتوا")
+
+    created_at = models.DateTimeField(verbose_name="تاریخ ایجاد", auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name="تاریخ آپدیت", auto_now=True)
+
+    class Meta:
+        verbose_name = 'کامنت'
+        verbose_name_plural = 'کامنت ها'
+
+    def __str__(self):
+        return f'{self.blog.title}'
