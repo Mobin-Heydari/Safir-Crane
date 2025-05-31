@@ -55,3 +55,29 @@ class CraneContent(models.Model):
     
     def __str__(self):
         return f'{self.title}--{self.crane.name}'
+
+
+
+class CraneImages(models.Model):
+
+    crane = models.ForeignKey(
+        Crane,
+        on_delete=models.CASCADE,
+        verbose_name="جرثقیل",
+        related_name="crane_images"
+    )
+
+    image = models.FileField(
+        upload_to="Cranes/Images/images/",
+        verbose_name="تصویر",
+        null=True, blank=True
+    )
+
+
+    class Meta:
+        verbose_name = "تصویر"
+        verbose_name_plural = "تصویر ها"
+
+    
+    def __str__(self):
+        return f'{self.title}--{self.crane.name}'
