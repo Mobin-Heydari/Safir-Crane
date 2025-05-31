@@ -60,3 +60,32 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
     
+
+class BlogContent(models.Model):
+    blog = models.ForeignKey(
+        Blog,
+        verbose_name="بلاگ",
+        on_delete=models.CASCADE,
+        related_name='blog_contents'
+    )
+
+    title = models.CharField(
+        verbose_name="عنوان",
+        max_length=255,
+        blank=True, null=True
+    )
+
+    content = models.TextField(verbose_name="محتوا", null=True, blank=True)
+
+    image = models.ImageField(verbose_name="تصویر", upload_to="Blogs/content/images/", null=True, blank=True)
+
+    created_at = models.DateTimeField(verbose_name="تاریخ ایجاد", auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name="تاریخ آپدیت", auto_now=True)
+
+    class Meta:
+        verbose_name = 'محتوای بلاگ'
+        verbose_name_plural = 'محتوا های بلاگ ها'
+
+    def __str__(self):
+        return f'{self.blog.title}'
+    
