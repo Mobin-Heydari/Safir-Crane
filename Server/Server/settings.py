@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Custom apps
     'Cranes.apps.CranesConfig',
+    'Contacts.apps.ContactsConfig',
 ]
 
 MIDDLEWARE = [
