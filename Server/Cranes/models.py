@@ -81,3 +81,63 @@ class CraneImages(models.Model):
     
     def __str__(self):
         return f'{self.title}--{self.crane.name}'
+    
+
+
+class CraneRequest(models.Model):
+
+    # Define status options for managing inquiry progress
+    class RequestStatusChoices(models.TextChoices):
+        NEW = 'N', 'جدید'
+        PENDING = 'P', 'درحال برسی'
+        COMPLETED = 'C', 'تکمیل شده'
+        ARCHIVED = 'A', 'بایگانی شده'
+        VERIFIED = 'V', 'تایید شده'
+        REJECTED = 'R', 'رد شده'
+
+
+    crane = models.ForeignKey(
+        Crane,
+        on_delete=models.CASCADE,
+        verbose_name="جرثقیل",
+        related_name="crane_requests"
+    )
+
+    # Basic request fields
+    title = models.CharField(verbose_name="عنوان", max_length=255)
+
+    content = models.TextField(verbose_name="محتوا")
+
+    f_name = models.CharField(verbose_name="نام", max_length=255)
+
+    l_name = models.CharField(verbose_name="نام خانوادگی", max_length=255)
+
+    phone = models.CharField(verbose_name="شماره تماس", max_length=255, blank=True)
+
+    email = models.EmailField(verbose_name="ایمیل")
+
+    # Workflow and metadata fields
+    status = models.CharField(
+        max_length=3, 
+        choices=RequestStatusChoices.choices, 
+        default=RequestStatusChoices.NEW,
+    )
+
+    # Read and ignore flags for interface management
+    is_ignored = models.BooleanField(default=True)
+    is_readed = models.BooleanField(default=False)
+
+
+    # Timestamps for record keeping
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+    class Meta:
+        verbose_name = 'درخواست'
+        verbose_name_plural = 'درخواست ها'
+        ordering = ['-created_at']  # Most recent contacts first
+    
+
+    def __str__(self):
+        return f"{self.title} - {self.crane.name}"
