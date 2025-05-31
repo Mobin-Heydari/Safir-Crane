@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Contacts.apps.ContactsConfig',
     'Blogs.apps.BlogsConfig',
     'FAQs.apps.FaqsConfig',
+    'Home.apps.HomeConfig',
 ]
 
 MIDDLEWARE = [
