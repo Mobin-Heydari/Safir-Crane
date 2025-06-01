@@ -11,6 +11,12 @@ class Crane(models.Model):
 
     conetnt = models.TextField(verbose_name="محتوا", null=True, blank=True)
 
+    views = models.IntegerField(verbose_name="تعداد بازدید", default=0)
+
+    # Timestamps for record keeping
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="تاریخ آپدیت")
+
 
     class Meta:
         verbose_name = "جرثقیل"
@@ -47,6 +53,10 @@ class CraneContent(models.Model):
         null=True, blank=True
     )
 
+    # Timestamps for record keeping
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="تاریخ آپدیت")
+
 
     class Meta:
         verbose_name = "محتوا"
@@ -72,6 +82,10 @@ class CraneImages(models.Model):
         verbose_name="تصویر",
         null=True, blank=True
     )
+
+    # Timestamps for record keeping
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="تاریخ آپدیت")
 
 
     class Meta:
@@ -121,16 +135,17 @@ class CraneRequest(models.Model):
         max_length=3, 
         choices=RequestStatusChoices.choices, 
         default=RequestStatusChoices.NEW,
+        verbose_name="وضعیت درخواست"
     )
 
     # Read and ignore flags for interface management
-    is_ignored = models.BooleanField(default=True)
-    is_readed = models.BooleanField(default=False)
+    is_ignored = models.BooleanField(default=True, verbose_name="نادیده گرفته شده؟")
+    is_readed = models.BooleanField(default=False, verbose_name="خوانده شده؟")
 
 
     # Timestamps for record keeping
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="تاریخ آپدیت")
 
 
     class Meta:
