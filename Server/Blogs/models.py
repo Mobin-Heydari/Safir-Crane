@@ -9,6 +9,11 @@ class Category(models.Model):
 
     image = models.ImageField(upload_to="Blogs/Category/images/")
 
+    # Timestamps for record keeping
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="تاریخ آپدیت")
+
+    
     class Meta:
         verbose_name = "دسته بندی"
         verbose_name_plural = "دسته بندی ها"
