@@ -1,0 +1,456 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}{% endblock title %}
+{% block keywords %}{% endblock keywords %}
+{% block description %}{% endblock description %}
+
+
+{% block main %}
+<main class="main">
+    <div class="page-content">
+        <section class="section-slider ">
+            <div class="container section-slider-wrap">
+                <div class="col-lg-6 slider-info">
+                    <h1>آنچه را که به دنبالش هستید پیدا کنید</h1>
+                    <h3>بیش از 4000 جدیدترین خودرو  در نمایندگی ما </h3>
+                    <p>شرکت جرثقیل صفیر دارای بهترین جرثقیل های روز دنیا است.</p>
+                </div>
+                <div class="col-lg-6 slider-img">
+                    <figure>
+                        <a href="#">
+                            <img src="{% static "images/car-silver.png" %}" class="product-hover-image" alt="product">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section class="newarrival-section rtl text-right">
+            <div class="container">
+                <div class="section-title-main">
+                    <h3 class="section-subtitle p-relative">
+                        محبوب ترین خودرو ها
+                    </h3>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">
+                            خودرهای <b>پرطرفداری</b> که شما انتخاب کرده اید .
+                        </h2>
+                        <a class="section-link">
+                            نمایش همه
+                        </a>
+                    </div>
+                </div>
+                <div class="owl-carousel owl-theme category-slider row appear-animate" data-owl-options="{
+                    'nav': false,
+                    'dots': true,
+                    'margin': 20,
+                    'loop': false,
+                    'autoplay': true,
+                    'autoplayTimeout':3000,
+                    'rtl':true,
+                    'autoHeight':true,
+                    'responsive': {
+                        '0': {
+                            'items': 1
+                        },
+                        '480': {
+                            'items': 2
+                        },
+                        '576': {
+                            'items': 2
+                        },
+                        '768': {
+                            'items': 3
+                        },
+                        '992': {
+                            'items': 4,
+                            'dots': false
+                        },
+                        '1200': {
+                            'items': 4,
+                            'dots': false
+                        }
+                    }
+                }">
+                    <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                        <figure class="product-media b-r-top">
+                            <a href="product.html">
+                                <img src="{% static "images/products/1.jpg" %}" alt="product" width="280" height="315">
+                            </a>
+                        </figure>
+                        <div class="product-details rtl b-r-bottom">
+                            <h3 class="product-name">
+                                <a href="product.html">Benz S-Class</a>
+                            </h3>
+                            <div class="listing-features">
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width:100%"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <p class="rating-reviews">(5.0)</p>
+                                </div>
+                            </div>
+                            <div class="listing-location-details">
+                                <div class="listing-price">
+                                    <span>
+                                        <i class="fa-regular fa-files"></i>
+                                    </span>
+                                    <p>
+                                        توضیحات
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product-action">
+                                <a href="/" class="btn btn-blue btn-blue-100" title="مشاهده و انتخاب ">
+                                    جزئیات و اجاره
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefit-section text-center appear-animate" style="background-image: url(images/demos/demo-yoga/background1.jpg); background-position: center center;
+            background-repeat: no-repeat; background-color: #FFF;">
+            <div class="benefit-container section-bottom-margin container p-relative ">
+                <figure class="floating d-flex justify-content-center" data-options='{"invertX":false,"invertY":false,"limitY":"0"}' data-floating-depth="0.1">
+                    <img src="{% static "images/benefit-img.png" %}" class="layer" alt="benefit" width="999" height="592">
+                </figure>
+                <div class="benefit-content row gutter-lg ltr">
+                    <div class="col-md-6 col-12 benefit-left">
+                        <div class="icon-box icon-box-side icon-border appear-animate benefit-icon1 skrollr"
+                                data-options='{"data-bottom-top":"transform: translate(-24%, 0);","data-center":"transform: translate(0%, 0);"}'
+                                data-animation-options="{
+                            'name': 'zoomIn',
+                            'delay': '.3s'
+                        }">
+                            <div class="icon-box-content pr-md-4 rtl">
+                                <h2 class="icon-box-title">سرویس</h2>
+                                <p>ماشین های ما بعد از هر سفر سرویس شده و وسایل مصرفی چک میشوند.</p>
+                            </div>
+                            <div class="icon-box-icon">
+                                <span class="icon">
+                                    <i class="fa-regular fa-car-wrench"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="icon-box icon-box-side icon-border appear-animate benefit-icon2 skrollr"
+                                data-options='{"data-bottom-top":"transform: translate(-24%, 0);","data-center":"transform: translate(0%, 0);"}'
+                                data-animation-options="{
+                            'name': 'zoomIn',
+                            'delay': '.3s'
+                        }">
+                            <div class="icon-box-content pr-md-4 rtl">
+                                <h2 class="icon-box-title">سوخت</h2>
+                                <p>
+                                    ماشین دریافتی از ما با باکی پر تحویل داده میشود
+                                </p>
+                            </div>
+                            <div class="icon-box-icon">
+                                <span class="icon">
+                                    <i class="fa-regular fa-gas-pump"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="icon-box icon-box-side icon-border appear-animate benefit-icon3 skrollr"
+                                data-options='{"data-bottom-top":"transform: translate(-24%, 0);","data-center":"transform: translate(0%, 0);"}'
+                                data-animation-options="{
+                            'name': 'zoomIn',
+                            'delay': '.3s'
+                        }">
+                            <div class="icon-box-content pr-md-4 mb-0 rtl">
+                                <h2 class="icon-box-title"> راننده </h2>
+                                <p> راننده های ما دارای پایه یک هستند و آموزش های تعمییر ماشین را دیده اند.</p>
+                            </div>
+                            <div class="icon-box-icon">
+                                <span class="icon">
+                                    <i class="fa-light fa-address-card"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 benefit-right">
+                        <div class="icon-box icon-box-side icon-border appear-animate benefit-icon4 skrollr"
+                                data-options='{"data-bottom-top":"transform: translate(24%, 0);","data-center":"transform: translate(0%, 0);"}'
+                                data-animation-options="{
+                            'name': 'zoomIn',
+                            'delay': '.3s'
+                        }">
+                            <div class="icon-box-icon">
+                                <span class="icon">
+                                    <i class="fa-regular fa-car-garage"></i>
+                                </span>
+                            </div>
+                            <div class="icon-box-content pl-md-4">
+                                <h2 class="icon-box-title"> امنیت </h2>
+                                <p>تامین امنیت شما و خانواد هتان رادر سفر وظیفه خود میدانیم. </p>
+                            </div>
+                        </div>
+                        <div class="icon-box icon-box-side icon-border appear-animate benefit-icon5 skrollr"
+                                data-options='{"data-bottom-top":"transform: translate(24%, 0);","data-center":"transform: translate(0%, 0);"}'
+                                data-animation-options="{
+                            'name': 'zoomIn',
+                            'delay': '.3s'
+                        }">
+                            <div class="icon-box-icon">
+                                <span class="icon">
+                                    <i class="fa-regular fa-gift-card"></i>
+                                </span>
+                            </div>
+                            <div class="icon-box-content pl-md-4">
+                                <h2 class="icon-box-title">هدایا و جوایز </h2>
+                                <p>با ثبت شماره خود از جوایز دوره ای و هدایای ما با خبر شوید.</p>
+                            </div>
+                        </div>
+                        <div class="icon-box icon-box-side icon-border appear-animate benefit-icon6 skrollr"
+                                data-options='{"data-bottom-top":"transform: translate(24%, 0);","data-center":"transform: translate(0%, 0);"}'
+                                data-animation-options="{
+                            'name': 'zoomIn',
+                            'delay': '.3s'
+                        }">
+                            <div class="icon-box-icon">
+                                <span class="icon">
+                                    <i class="fa-solid fa-person-dolly"></i>
+                                </span>
+                            </div>
+                            <div class="icon-box-content pl-md-4">
+                                <h2 class="icon-box-title">خدمات </h2>
+                                <p>ارائه خدمات حمل وسایل و خرید های شما</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-blog">
+            <div class="container">
+                <div class="section-title-main">
+                    <h3 class="section-subtitle p-relative">
+                        وبلاگ
+                    </h3>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">
+                            برترین خودرهای <b>اقتصادی</b> که شما انتخاب کرده اید .
+                        </h2>
+                        <a class="section-link">
+                            نمایش همه
+                        </a>
+                    </div>
+                </div>
+                <div class="section-blog-wrap">
+                    <div class="owl-carousel owl-theme row cols-lg-3 cols-md-2 cols-1" data-owl-options="{
+                        'items': 3,
+                        'margin': 20,
+                        'loop': true,
+                        'nav': false,
+                        'dots': true,
+                        'autoplay': true,
+                        'autoplayTimeout':3000,
+                        'rtl':true,
+                        'autoHeight':true,
+                        'responsive': {
+                            '0': {
+                                'items': 1
+                            },
+                            '576': {
+                                'items': 2
+                            },
+                            '992': {
+                                'items': 3,
+                                'dots': false
+                            }
+                        }
+                    }">
+                        <div class="post post-mask gradient">
+                            <figure class="post-media overlay-zoom">
+                                <a href="blog.html">
+                                    <img src="{% static "images/blog/1.jpg" %}" width="380" height="280" alt="post" />
+                                </a>
+                            </figure>
+                            <div class="post-details rtl">
+                                <div class="post-meta">
+                                    در<a href="#" class="post-date">2 آبان 1402</a>
+                                    | <a href="#" class="post-comment"><span> 2 </span> نظر</a>
+                                </div>
+                                <h4 class="post-title">
+                                    <a href="blog.html">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                                    </a>
+                                </h4>
+                                <a href="blog.html" class="btn btn-outline-white">
+                                    بیشتر
+                                </a>
+                            </div>
+                        </div>
+                        <div class="post post-mask gradient">
+                            <figure class="post-media overlay-zoom">
+                                <a href="blog.html">
+                                    <img src="{% static "images/blog/2.jpg" %}" width="380" height="250" alt="post" />
+                                </a>
+                            </figure>
+                            <div class="post-details rtl">
+                                <div class="post-meta">
+                                    در<a href="#" class="post-date">2 آبان 1402</a>
+                                    | <a href="#" class="post-comment"><span>7</span> نظر</a>
+                                </div>
+                                <h4 class="post-title">
+                                    <a href="blog.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a>
+                                </h4>
+                                <a href="blog.html" class="btn btn-outline-white">
+                                    بیشتر
+                                </a>
+                            </div>
+                        </div>
+                        <div class="post post-mask gradient">
+                            <figure class="post-media overlay-zoom">
+                                <a href="blog.html">
+                                    <img src="{% static "images/blog/3.jpg" %}" width="380" height="250" alt="post" />
+                                </a>
+                            </figure>
+                            <div class="post-details rtl">
+                                <div class="post-meta">
+                                    در<a href="#" class="post-date">2 آبان 1402</a>
+                                    | <a href="#" class="post-comment"><span>7</span> نظر</a>
+                                </div>
+                                <h4 class="post-title">
+                                    <a href="blog.html">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                                    </a>
+                                </h4>
+                                <a href="blog.html" class="btn btn-outline-white">
+                                    بیشتر
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="comment-main-wrap">
+            <div class="container">
+                <div class="section-title-main">
+                    <h3 class="section-subtitle p-relative">
+                        نظرات شما
+                    </h3>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">
+                            بعد از تجربه همکاری که    <b>با ما</b> داشتید.
+                        </h2>
+                        <a class="section-link">
+                            نمایش همه
+                        </a>
+                    </div>
+                </div>
+                <div class="code-template">
+                    <div class="owl-carousel owl-theme row cols-lg-3 cols-sm-2 cols-1" data-owl-options="{
+                            'rtl':true,
+                        'items': 3,
+                        'nav': false,
+                        'dots': true,
+                        'loop': true,
+                        'margin': 20,
+                        'autoplay': true,
+                        'autoplayTimeout':3000,
+                        'autoHeight':true,
+                        'responsive': {
+                            '0': {
+                                'items': 1
+                            },
+                            '576': {
+                                'items': 2
+                            },
+                            '768': {
+                                'items': 3,
+                                'dots': false
+                            },
+                            '992': {
+                                'items': 3,
+                                'dots': false
+                            }
+                        }
+                    }">
+                        <div class="testimonial testimonial-centered">
+                            <div class="testimonial-info">
+                                <figure class="testimonial-bg-thumbnail">
+                                    <img class=" b-r-half" src="{% static "images/agents/bg1.jpg" %}" />
+                                </figure>
+                                <figure class="testimonial-author-thumbnail">
+                                    <img src="{% static "images/agents/1.jpg" %}" alt="user" width="40" height="40" />
+                                </figure>
+                                <cite>
+                                    افسون هاشمی
+                                    <span>مشتری</span>
+                                </cite>
+                                <blockquote>
+                                    “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
+                                    ”
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="testimonial testimonial-centered testimonial-border">
+                            <div class="testimonial-info">
+                                <figure class="testimonial-bg-thumbnail">
+                                    <img class=" b-r-half" src="{% static "images/agents/bg2.jpg" %}" />
+                                </figure>
+                                <figure class="testimonial-author-thumbnail">
+                                    <img src="{% static "images/agents/2.jpg" %}" alt="user" width="40" height="40" />
+                                </figure>
+                                <cite>
+                                    افسون هاشمی
+                                    <span>مشتری</span>
+                                </cite>
+                                <blockquote>
+                                    “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
+                                    ”
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="testimonial testimonial-centered">
+                            <div class="testimonial-info">
+                                <figure class="testimonial-bg-thumbnail">
+                                    <img class=" b-r-half" src="{% static "images/agents/bg3.jpg" %}" />
+                                </figure>
+                                <figure class="testimonial-author-thumbnail">
+                                    <img src="{% static "images/agents/3.jpg" %}" alt="user" width="40" height="40" />
+                                </figure>
+                                <cite>
+                                    افسون هاشمی
+                                    <span>مشتری</span>
+                                </cite>
+                                <blockquote>
+                                    “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
+                                    ”
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="testimonial testimonial-centered">
+                            <div class="testimonial-info">
+                                <figure class="testimonial-bg-thumbnail">
+                                    <img class=" b-r-half" src="{% static "images/agents/bg4.jpg" %}" />
+                                </figure>
+                                <figure class="testimonial-author-thumbnail">
+                                    <img src="{% static "images/agents/4.jpg" %}" alt="user" width="40" height="40" />
+                                </figure>
+                                <cite>
+                                    افسون هاشمی
+                                    <span>مشتری</span>
+                                </cite>
+                                <blockquote>
+                                    “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
+                                    ”
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock main %}
