@@ -51,4 +51,4 @@ class Contact(models.Model):
     
 
     def __str__(self):
-        return f"{self.title} - {self.name}"
+        return f"{self.title} - {self.l_name}"
