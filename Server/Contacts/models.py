@@ -31,16 +31,17 @@ class Contact(models.Model):
         max_length=3, 
         choices=ContactStatusChoices.choices, 
         default=ContactStatusChoices.NEW,
+        verbose_name="وضعیت درخواست"
     )
 
     # Read and ignore flags for interface management
-    is_ignored = models.BooleanField(default=True)
-    is_readed = models.BooleanField(default=False)
+    is_ignored = models.BooleanField(default=True, verbose_name="نادیده گرفته شده؟")
+    is_readed = models.BooleanField(default=False, verbose_name="خوانده شده؟")
 
 
     # Timestamps for record keeping
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="تاریخ آپدیت")
 
 
     class Meta:
