@@ -94,7 +94,7 @@ class CraneImages(models.Model):
 
     
     def __str__(self):
-        return f'{self.title}--{self.crane.name}'
+        return f'{self.crane.name}'
     
 
 
