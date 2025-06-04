@@ -37,22 +37,35 @@
                                     </h2>
                                 </div>
                             </div>
-                            <form class="pl-lg-2" action="#">
+                            <form class="pl-lg-2" method="POST">
+                                {% csrf_token %}
                                 <div class="row mb-2">
-                                    <div class="col-12 mb-4">
-                                        <label>متن <i class="fa-solid fa-star-of-life"></i></label>
-                                        <textarea class="form-control" required placeholder="متن"></textarea>
-                                    </div>
                                     <div class="col-md-6 mb-4">
                                         <label>نام <i class="fa-solid fa-star-of-life"></i></label>
-                                        <input class="form-control" type="text" placeholder="نام" required>
+                                        {{ form.f_name}}
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label>نام خانوادگی <i class="fa-solid fa-star-of-life"></i></label>
+                                        {{ form.l_name}}
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label>ایمیل <i class="fa-solid fa-star-of-life"></i></label>
-                                        <input class="form-control text-left" type="email" placeholder="ایمیل" required>
+                                        {{ form.email }}
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label>شماره تماس <i class="fa-solid fa-star-of-life"></i></label>
+                                        {{ form.phone }}
+                                    </div>
+                                    <div class="col-md-12 mb-4">
+                                        <label>عنوان <i class="fa-solid fa-star-of-life"></i></label>
+                                        {{ form.title }}
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <label>متن <i class="fa-solid fa-star-of-life"></i></label>
+                                        {{ form.content }}
                                     </div>
                                 </div>
-                                <button class="btn btn-blue ">
+                                <button class="btn btn-blue" type="submit">
                                     ارسال پیام
                                 </button>
                             </form>

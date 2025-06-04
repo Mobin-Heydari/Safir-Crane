@@ -32,7 +32,7 @@ class ContactView(View):
             cd = form.cleaned_data
             
             # Create a new Contact object using the validated form data
-            Contact.objects.create(
+            instance = Contact.objects.create(
                 f_name=cd['f_name'],
                 l_name=cd['l_name'],
                 title=cd['title'],
@@ -40,8 +40,9 @@ class ContactView(View):
                 email=cd['email'],
                 content=cd['content']
             )
+            instance.save()
             # Redirect to the same contact page after successful submission
-            return redirect('contacts:contact')
+            return redirect('contacts:contact-us')
         
         # If the form is invalid, render the page with form errors displayed
         return render(request, 'Contacts/contact-us.html', {'form': form})
