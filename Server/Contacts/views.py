@@ -18,7 +18,7 @@ class ContactView(View):
         """
         # Instantiate a blank form for the user to fill in
         form = ContactsForm()
-        return render(request, 'Contacts/contact.html', {'form': form})
+        return render(request, 'Contacts/contact-us.html', {'form': form})
 
     def post(self, request):
         """
@@ -44,4 +44,4 @@ class ContactView(View):
             return redirect('contacts:contact')
         
         # If the form is invalid, render the page with form errors displayed
-        return render(request, 'Contacts/contact.html', {'form': form})
+        return render(request, 'Contacts/contact-us.html', {'form': form})

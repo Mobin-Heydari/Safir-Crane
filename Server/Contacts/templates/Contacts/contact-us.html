@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block ttile %}تماس با ما{% endblock ttile %}
+{% block keywords %}{% endblock keywords %}
+{% block description %}{% endblock description %}
+
+
+
+{% block main %}
+<main class="main bg-gray rtl text-right">
+    <div class="container">
+        <div class="page-header section-bottom-margin">
+            <ul class="breadcrumb">
+                <li><a href="{% url "home:home" %}"><i class="fa-light fa-home"></i></a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li><a href="{% url "home:home" %}">صفحه ی اصلی</a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li>تماس با ما</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-content">
+        <section class="contact-section">
+            <div class="container">
+                <div class="row gutter-lg">
+                    <div class="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center mb-4">
+                        <div class="w-100 contact-touch">
+                            <div class="section-title-main">
+                                <h3 class="section-subtitle p-relative">
+                                    با ما در تماس باشید
+                                </h3>
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        فیلد های <b>ستاره دار</b> الزامی هستند
+                                    </h2>
+                                </div>
+                            </div>
+                            <form class="pl-lg-2" action="#">
+                                <div class="row mb-2">
+                                    <div class="col-12 mb-4">
+                                        <label>متن <i class="fa-solid fa-star-of-life"></i></label>
+                                        <textarea class="form-control" required placeholder="متن"></textarea>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label>نام <i class="fa-solid fa-star-of-life"></i></label>
+                                        <input class="form-control" type="text" placeholder="نام" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label>ایمیل <i class="fa-solid fa-star-of-life"></i></label>
+                                        <input class="form-control text-left" type="email" placeholder="ایمیل" required>
+                                    </div>
+                                </div>
+                                <button class="btn btn-blue ">
+                                    ارسال پیام
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="d-flex align-items-center h-100 contact-left">
+                            <div>
+                                <h3 class="banner-title font-weight-bold mb-4 main-title ">اطلاعات تماس</h3>
+                                <div class="icon-box icon-box-side">
+                                    <span class="icon-box-icon">
+                                        <i class="fa-light fa-location-dot"></i>
+                                    </span>
+                                    <div class="icon-box-content rtl">
+                                        <h4 class="icon-box-title">آدرس شرکت :</h4>
+                                        <p>تهران، خیابان ولیعصر، بالاتر از میدان ونک، خیابان شریعتی، پلاک 45</p>
+                                    </div>
+                                </div>
+                                <div class="icon-box icon-box-side">
+                                    <span class="icon-box-icon">
+                                        <i class="fa-light fa-phone"></i>
+                                    </span>
+                                    <div class="icon-box-content rtl">
+                                        <h4 class="icon-box-title">تلفن :</h4>
+                                        <p>
+                                            <a href="tel:#"> 0912345678 </a><br>
+                                            <a href="tel:#"> 0912345678 </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="icon-box icon-box-side">
+                                    <span class="icon-box-icon">
+                                        <i class="fa-light fa-envelope"></i>
+                                    </span>
+                                    <div class="icon-box-content rtl">
+                                        <h4 class="icon-box-title">ایمیل : </h4>
+                                        <p>
+                                            <a href="mailto:example@example.com">support@example.com</a><br>
+                                            <a href="mailto:example@example.com">support@example.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock main %}
