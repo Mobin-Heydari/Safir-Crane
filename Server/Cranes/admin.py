@@ -33,7 +33,7 @@ class CraneAdmin(admin.ModelAdmin):
     inlines = [CraneContentInline, CraneImagesInline]
     fieldsets = (
         ("محتوای کلی", {
-            "fields": ('name', 'slug', 'image', 'conetnt', 'views')
+            "fields": ('name', 'slug', 'image', 'content', 'views')
         }),
         ("تاریخ ها", {
             "fields": ('created_at', 'updated_at'),
