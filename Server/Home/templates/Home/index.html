@@ -31,13 +31,13 @@
             <div class="container">
                 <div class="section-title-main">
                     <h3 class="section-subtitle p-relative">
-                        محبوب ترین خودرو ها
+                        محبوب ترین جرثقیل ها
                     </h3>
                     <div class="section-title-wrap">
                         <h2 class="section-title">
-                            خودرهای <b>پرطرفداری</b> که شما انتخاب کرده اید .
+                            جرثقیل های <b>پرطرفداری</b> که شما انتخاب کرده اید .
                         </h2>
-                        <a class="section-link">
+                        <a class="section-link" href={% url "cranes:crane-list" %}>
                             نمایش همه
                         </a>
                     </div>
@@ -74,42 +74,44 @@
                         }
                     }
                 }">
-                    <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
-                        <figure class="product-media b-r-top">
-                            <a href="product.html">
-                                <img src="{% static "images/products/1.jpg" %}" alt="product" width="280" height="315">
-                            </a>
-                        </figure>
-                        <div class="product-details rtl b-r-bottom">
-                            <h3 class="product-name">
-                                <a href="product.html">Benz S-Class</a>
-                            </h3>
-                            <div class="listing-features">
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:100%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <p class="rating-reviews">(5.0)</p>
-                                </div>
-                            </div>
-                            <div class="listing-location-details">
-                                <div class="listing-price">
-                                    <span>
-                                        <i class="fa-regular fa-files"></i>
-                                    </span>
-                                    <p>
-                                        توضیحات
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="product-action">
-                                <a href="/" class="btn btn-blue btn-blue-100" title="مشاهده و انتخاب ">
-                                    جزئیات و اجاره
+                    {% for crane in cranes %}
+                        <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                            <figure class="product-media b-r-top">
+                                <a href="{{ crane.get_absolute_url }}">
+                                    <img src="{{ crane.image.url }}" alt="product" width="280" height="315">
                                 </a>
+                            </figure>
+                            <div class="product-details rtl b-r-bottom">
+                                <h3 class="product-name">
+                                    <a href="{{ crane.get_absolute_url }}">{{ crane.name }}</a>
+                                </h3>
+                                <div class="listing-features">
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <p class="rating-reviews">(5.0)</p>
+                                    </div>
+                                </div>
+                                <div class="listing-location-details">
+                                    <div class="listing-price">
+                                        <span>
+                                            <i class="fa-regular fa-files"></i>
+                                        </span>
+                                        <p>
+                                            {{ crane.content }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="product-action">
+                                    <a href="{{ crane.get_absolute_url }}" class="btn btn-blue btn-blue-100" title="مشاهده و انتخاب ">
+                                        جزئیات و اجاره
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -226,228 +228,92 @@
                 </div>
             </div>
         </section>
-
-        <section class="section-blog">
-            <div class="container">
-                <div class="section-title-main">
-                    <h3 class="section-subtitle p-relative">
-                        وبلاگ
-                    </h3>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">
-                            برترین خودرهای <b>اقتصادی</b> که شما انتخاب کرده اید .
-                        </h2>
-                        <a class="section-link">
-                            نمایش همه
-                        </a>
-                    </div>
-                </div>
-                <div class="section-blog-wrap">
-                    <div class="owl-carousel owl-theme row cols-lg-3 cols-md-2 cols-1" data-owl-options="{
-                        'items': 3,
-                        'margin': 20,
-                        'loop': true,
-                        'nav': false,
-                        'dots': true,
-                        'autoplay': true,
-                        'autoplayTimeout':3000,
-                        'rtl':true,
-                        'autoHeight':true,
-                        'responsive': {
-                            '0': {
-                                'items': 1
-                            },
-                            '576': {
-                                'items': 2
-                            },
-                            '992': {
-                                'items': 3,
-                                'dots': false
-                            }
-                        }
-                    }">
-                        <div class="post post-mask gradient">
-                            <figure class="post-media overlay-zoom">
-                                <a href="blog.html">
-                                    <img src="{% static "images/blog/1.jpg" %}" width="380" height="280" alt="post" />
-                                </a>
-                            </figure>
-                            <div class="post-details rtl">
-                                <div class="post-meta">
-                                    در<a href="#" class="post-date">2 آبان 1402</a>
-                                    | <a href="#" class="post-comment"><span> 2 </span> نظر</a>
-                                </div>
-                                <h4 class="post-title">
-                                    <a href="blog.html">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                    </a>
-                                </h4>
-                                <a href="blog.html" class="btn btn-outline-white">
-                                    بیشتر
-                                </a>
-                            </div>
-                        </div>
-                        <div class="post post-mask gradient">
-                            <figure class="post-media overlay-zoom">
-                                <a href="blog.html">
-                                    <img src="{% static "images/blog/2.jpg" %}" width="380" height="250" alt="post" />
-                                </a>
-                            </figure>
-                            <div class="post-details rtl">
-                                <div class="post-meta">
-                                    در<a href="#" class="post-date">2 آبان 1402</a>
-                                    | <a href="#" class="post-comment"><span>7</span> نظر</a>
-                                </div>
-                                <h4 class="post-title">
-                                    <a href="blog.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a>
-                                </h4>
-                                <a href="blog.html" class="btn btn-outline-white">
-                                    بیشتر
-                                </a>
-                            </div>
-                        </div>
-                        <div class="post post-mask gradient">
-                            <figure class="post-media overlay-zoom">
-                                <a href="blog.html">
-                                    <img src="{% static "images/blog/3.jpg" %}" width="380" height="250" alt="post" />
-                                </a>
-                            </figure>
-                            <div class="post-details rtl">
-                                <div class="post-meta">
-                                    در<a href="#" class="post-date">2 آبان 1402</a>
-                                    | <a href="#" class="post-comment"><span>7</span> نظر</a>
-                                </div>
-                                <h4 class="post-title">
-                                    <a href="blog.html">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                    </a>
-                                </h4>
-                                <a href="blog.html" class="btn btn-outline-white">
-                                    بیشتر
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         
-        <section class="comment-main-wrap">
+        <section class="newarrival-section rtl text-right">
             <div class="container">
                 <div class="section-title-main">
                     <h3 class="section-subtitle p-relative">
-                        نظرات شما
+                        پربازدید ترین بلاگ ها
                     </h3>
                     <div class="section-title-wrap">
                         <h2 class="section-title">
-                            بعد از تجربه همکاری که    <b>با ما</b> داشتید.
+                            بلاگ های <b>محبوبی</b> که شما انتخاب کرده اید .
                         </h2>
-                        <a class="section-link">
+                        <a class="section-link" href={% url "blogs:blog-list" %}>
                             نمایش همه
                         </a>
                     </div>
                 </div>
-                <div class="code-template">
-                    <div class="owl-carousel owl-theme row cols-lg-3 cols-sm-2 cols-1" data-owl-options="{
-                            'rtl':true,
-                        'items': 3,
-                        'nav': false,
-                        'dots': true,
-                        'loop': true,
-                        'margin': 20,
-                        'autoplay': true,
-                        'autoplayTimeout':3000,
-                        'autoHeight':true,
-                        'responsive': {
-                            '0': {
-                                'items': 1
-                            },
-                            '576': {
-                                'items': 2
-                            },
-                            '768': {
-                                'items': 3,
-                                'dots': false
-                            },
-                            '992': {
-                                'items': 3,
-                                'dots': false
-                            }
+                <div class="owl-carousel owl-theme category-slider row appear-animate" data-owl-options="{
+                    'nav': false,
+                    'dots': true,
+                    'margin': 20,
+                    'loop': false,
+                    'autoplay': true,
+                    'autoplayTimeout':3000,
+                    'rtl':true,
+                    'autoHeight':true,
+                    'responsive': {
+                        '0': {
+                            'items': 1
+                        },
+                        '480': {
+                            'items': 2
+                        },
+                        '576': {
+                            'items': 2
+                        },
+                        '768': {
+                            'items': 3
+                        },
+                        '992': {
+                            'items': 4,
+                            'dots': false
+                        },
+                        '1200': {
+                            'items': 4,
+                            'dots': false
                         }
-                    }">
-                        <div class="testimonial testimonial-centered">
-                            <div class="testimonial-info">
-                                <figure class="testimonial-bg-thumbnail">
-                                    <img class=" b-r-half" src="{% static "images/agents/bg1.jpg" %}" />
-                                </figure>
-                                <figure class="testimonial-author-thumbnail">
-                                    <img src="{% static "images/agents/1.jpg" %}" alt="user" width="40" height="40" />
-                                </figure>
-                                <cite>
-                                    افسون هاشمی
-                                    <span>مشتری</span>
-                                </cite>
-                                <blockquote>
-                                    “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
-                                    ”
-                                </blockquote>
+                    }
+                }">
+                    {% for blog in blogs %}
+                        <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                            <figure class="product-media b-r-top">
+                                <a href="{{ blog.get_absolute_url }}">
+                                    <img src="{{ blog.image.url }}" alt="product" width="280" height="315">
+                                </a>
+                            </figure>
+                            <div class="product-details rtl b-r-bottom">
+                                <h3 class="product-name">
+                                    <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a>
+                                </h3>
+                                <div class="listing-features">
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <p class="rating-reviews">(5.0)</p>
+                                    </div>
+                                </div>
+                                <div class="listing-location-details">
+                                    <div class="listing-price">
+                                        <span>
+                                            <i class="fa-regular fa-files"></i>
+                                        </span>
+                                        <p>
+                                            {{ blog.content }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="product-action">
+                                    <a href="{{ blog.get_absolute_url }}" class="btn btn-blue btn-blue-100">
+                                        جزئیات و مشاهده
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="testimonial testimonial-centered testimonial-border">
-                            <div class="testimonial-info">
-                                <figure class="testimonial-bg-thumbnail">
-                                    <img class=" b-r-half" src="{% static "images/agents/bg2.jpg" %}" />
-                                </figure>
-                                <figure class="testimonial-author-thumbnail">
-                                    <img src="{% static "images/agents/2.jpg" %}" alt="user" width="40" height="40" />
-                                </figure>
-                                <cite>
-                                    افسون هاشمی
-                                    <span>مشتری</span>
-                                </cite>
-                                <blockquote>
-                                    “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
-                                    ”
-                                </blockquote>
-                            </div>
-                        </div>
-                        <div class="testimonial testimonial-centered">
-                            <div class="testimonial-info">
-                                <figure class="testimonial-bg-thumbnail">
-                                    <img class=" b-r-half" src="{% static "images/agents/bg3.jpg" %}" />
-                                </figure>
-                                <figure class="testimonial-author-thumbnail">
-                                    <img src="{% static "images/agents/3.jpg" %}" alt="user" width="40" height="40" />
-                                </figure>
-                                <cite>
-                                    افسون هاشمی
-                                    <span>مشتری</span>
-                                </cite>
-                                <blockquote>
-                                    “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
-                                    ”
-                                </blockquote>
-                            </div>
-                        </div>
-                        <div class="testimonial testimonial-centered">
-                            <div class="testimonial-info">
-                                <figure class="testimonial-bg-thumbnail">
-                                    <img class=" b-r-half" src="{% static "images/agents/bg4.jpg" %}" />
-                                </figure>
-                                <figure class="testimonial-author-thumbnail">
-                                    <img src="{% static "images/agents/4.jpg" %}" alt="user" width="40" height="40" />
-                                </figure>
-                                <cite>
-                                    افسون هاشمی
-                                    <span>مشتری</span>
-                                </cite>
-                                <blockquote>
-                                    “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
-                                    ”
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
