@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 
@@ -9,7 +10,7 @@ class Crane(models.Model):
 
     image = models.FileField(verbose_name="تصویر", upload_to="Cranes/images/")
 
-    conetnt = models.TextField(verbose_name="محتوا", null=True, blank=True)
+    content = models.TextField(verbose_name="محتوا", null=True, blank=True)
 
     views = models.IntegerField(verbose_name="تعداد بازدید", default=0)
 
@@ -25,6 +26,10 @@ class Crane(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("cranes:crane-detail", kwargs={"slug": self.slug})
+    
     
 
 
