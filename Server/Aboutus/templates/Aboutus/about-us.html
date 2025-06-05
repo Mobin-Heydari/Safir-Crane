@@ -1,0 +1,390 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}{% endblock title %}
+{% block keywords %}{% endblock keywords %}
+{% block description %}{% endblock description %}
+
+
+
+
+{% block main %}
+<main class="main bg-gray rtl text-right">
+    <div class="container">
+        <div class="page-header section-bottom-margin">
+            <ul class="breadcrumb">
+                <li><a href="{% url "home:home" %}"><i class="fa-light fa-home"></i></a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li><a href="{% url "home:home" %}">صفحه ی اصلی</a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li>درباره ما</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-content">
+        <section class="section-bottom-margin appear-animate">
+            <div class="container about-section-wrap">
+                <div class="row align-items-center bg-white-r">
+                    <div class="col-lg-4 mb-10 mb-lg-4 ">
+                        <h3 class="section-subtitle p-relative">
+                            درباره ما
+                        </h3>
+                        <div class="section-title-wrap">
+                            <h2 class="section-title">
+                                آمار تمامی   <b>نماینده های </b> فعال ما
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 ">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="counter text-center text-dark">
+                                    <span class="count-to" data-fromvalue="0" data-tovalue="34"
+                                            data-duration="900" data-delimiter=",">0</span>
+                                    <h5 class="count-title font-weight-bold text-body">سال تجاری</h5>
+                                    <p class="text-grey text-center mb-0">
+                                        در خدمت شما هستیم<br>
+                                        وازاینکه ما را انتخاب کردید متشکریم .
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="counter text-center text-dark">
+                                    <span class="count-to" data-fromvalue="0" data-tovalue="50"
+                                            data-duration="900" data-delimiter=",">0</span>
+                                    <h5 class="count-title font-weight-bold text-body">طراحی برند</h5>
+                                    <p class="text-grey text-center mb-0">
+                                        آمار طراحی برندها<br>
+                                        شامل خدمات و محصولات است.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4 ">
+                                <div class="counter text-center text-dark">
+                                    <span class="count-to" data-fromvalue="0" data-tovalue="130"
+                                            data-duration="900" data-delimiter=",">0</span>
+                                    <h5 class="count-title font-weight-bold text-body">اعضا تیم</h5>
+                                    <p class="text-grey text-center mb-0">
+                                        آمار تعداد اعضا تیم <br>
+                                        شامل اعضا اصلی و فرعی است .
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-bottom-margin section-bottom-margin appear-animate">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <div class="about-img">
+                            <div class="about-exp">
+                                <span>12+ سال تجربه و خدمت </span>
+                            </div>
+                            <div class="abt-img">
+                                <img src="{% static "images/subpages/customer.jpg" %}" class="img-fluid banner-radius" alt="Happy Customer" width="580" height="507">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-right about-left">
+                        <div class="section-title-main">
+                            <h3 class="section-subtitle p-relative">
+                                خودرو های اقتصادی
+                            </h3>
+                            <div class="section-title-wrap">
+                                <h2 class="section-title font-weight-normal lh-2">
+                                    خودرهای <b>اقتصادی</b> که شما انتخاب کرده اید .
+                                </h2>
+                            </div>
+                        </div>
+                        <p class="section-desc text-grey">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر آن چنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می‌باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می‌طلبد.
+                        </p>
+                        <div class="row about-main">
+                            <div class="col-md-12">
+                                <ul>
+                                    <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                    <li>
+                                        <div>
+                                            <img loading="lazy" decoding="async" width="46" height="12" src="{% static "images/border.png" %}">
+                                        </div>
+                                    </li>
+                                    <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                    <li>
+                                        <div>
+                                            <img loading="lazy" decoding="async" width="46" height="12" src="{% static "images/border.png" %}">
+                                        </div>
+                                    </li>
+                                    <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                    <li>
+                                        <div>
+                                            <img loading="lazy" decoding="async" width="46" height="12" src="{% static "images/border.png" %}">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="shop.html" class="btn btn-blue">بیشتر</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="details-section-main">
+            <div class="container details-section-wrap">
+                <div class="row details-section">
+                    <div class="col-lg-7 details-section-right">
+                        <div class="section-title-main">
+                            <h3 class="section-subtitle p-relative">
+                                نکات طلائی خرید
+                            </h3>
+                            <div class="section-title-wrap">
+                                <h2 class="section-title">
+                                    خرید  <b> آنلاین</b> مطمئن از فروشگاه‌های اینترنتی
+                                </h2>
+                            </div>
+                        </div>
+                        <p class="details-section-short">خرید آنلاین به یکی از محبوب‌ترین روش‌های خرید در دنیای امروز تبدیل شده است. راحتی در انتخاب محصول، امکان مقایسه قیمت‌ها و تحویل سریع از دلایلی است که بسیاری از افراد را به خرید اینترنتی جذب کرده است. اما با وجود این مزایا، باید دقت کرد که خرید آنلاین همیشه با امنیت و اطمینان همراه باشد. در این مقاله، به 5 نکته طلایی برای خرید مطمئن از فروشگاه‌های اینترنتی می‌پردازیم.</p>
+                        <p class="details-section-short">احساس کیفیت و زیباییشون شما رو به خودشون جلب می‌کنه. با ما، خرید لحظه‌هایی پر از اشتیاق و خوشحالی رو به شما هدیه می‌دهد.</p>
+                    </div>
+                    <div class="col-lg-5 details-section-left">
+                        <div class="details-section-img b-r-10">
+                            <img src="{% static "images/blog/single/1.jpg" %}" alt="post" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container content-section-main">
+                <div class="row justify-content-start ">
+                    <div class="col-lg-7 pr-0">
+                        <div class="strip main-bg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row content-section-wrap">
+                    <div class="post-details rtl">
+                        <div class="post-body">
+                            <div class="section-title-main mb-2">
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        بررسی   <b>  اعتبار </b>  فروشگاه آنلاین
+                                    </h2>
+                                </div>
+                            </div>
+                            <p class="mb-4">
+                                قبل از هر خریدی، مطمئن شوید که فروشگاه موردنظر معتبر است. بررسی کنید که آیا فروشگاه دارای نماد اعتماد الکترونیک است یا خیر. این نماد که معمولاً در پایین صفحه اصلی وب‌سایت قرار دارد، نشانه‌ای از تأیید رسمی فروشگاه است. همچنین اطلاعات تماس، آدرس فیزیکی در صورت بروز مشکل می‌توانید با آن‌ها ارتباط برقرار کنید.
+                            </p>
+                            <div class="row align-items-center">
+                                <div>
+                                    <ul class="list list-type-check mb-6">
+                                        <li>جوابگوی سوالات پیوسته اهل دنیای تکنولوژی و طراحی</li>
+                                        <li>جوابگوی سوالات پیوسته اهل دنیای تکنولوژی  </li>
+                                        <li>کاملا ریسپانسیو و مناسب موبایل</li>
+                                        <li>طراحی سایت با رعایت اصول سئو</li>
+                                        <li>پشتیبانی سایت</li>
+                                        <li>کار تیمی بزرگ </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="section-title-main mb-2">
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        مطالعه     <b>  نظرات </b>  کاربران
+                                    </h2>
+                                </div>
+                            </div>
+                            <p class="mb-4">
+                                یکی از بهترین راه‌ها برای اطمینان از کیفیت محصولات و خدمات یک فروشگاه اینترنتی، مطالعه نظرات خریداران قبلی است.
+                            </p>
+                            <blockquote class="blockquote-terms mt-1 mb-6 p-relative">
+                                <p class="font-weight-semi-bold">
+                                    “ طبق قانون حمایت از حقوق مصرف‌کنندگان و قانون تجارت الکترونیکی جمهوری اسلامی ایران، فروشگاه‌های اینترنتی موظف هستند که اطلاعات دقیقی از محصول، شرایط خرید، قیمت‌ها و نحوه بازگشت کالا را به مشتریان خود ارائه دهند. این قوانین به‌منظور محافظت از حقوق مصرف‌کنندگان و تضمین امنیت خرید آنلاین وضع شده است. همچنین، فروشگاه‌های اینترنتی باید اطمینان حاصل کنند که اطلاعات مشتریان به‌صورت امن و محرمانه نگهداری می‌شود و فقط در مواقع ضروری مورد استفاده قرار می‌گیرد.”
+                                </p>
+                            </blockquote>
+                            <div class="section-title-main mb-2">
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        مقایسه   <b>قیمت </b> رقبا
+                                    </h2>
+                                </div>
+                            </div>
+                            <p class="mb-4">پیش از خرید، قیمت محصول موردنظر خود را در چند فروشگاه مختلف مقایسه کنید. ابزارهای مقایسه قیمت آنلاین می‌توانند در این زمینه کمک‌کننده باشند. اگر قیمتی به طور غیرعادی پایین است، ممکن است محصول بی‌کیفیت یا جعلی باشد. در خرید آنلاین، همیشه توجه داشته باشید که کیفیت و قیمت باید با هم همخوانی داشته باشند.   </p>
+                            <div class="section-title-main mb-2">
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        بررسی<b>  شرایط </b>  بازگشت کال
+                                    </h2>
+                                </div>
+                            </div>
+                            <p class="mb-4">
+                                یکی از نکات مهم در خرید آنلاین، آگاهی از قوانین بازگشت کالا است. قبل از خرید، شرایط مرجوعی را مطالعه کنید. فروشگاه‌های معتبر معمولاً سیاست‌های شفافی در این زمینه دارند و به مشتریان این امکان را می‌دهند که در صورت وجود مشکل در محصول، آن را بازگردانند یا تعویض کنند. حتماً بررسی کنید که مدت زمان مجاز برای بازگشت کالا و شرایط لازم چیست.
+                            </p>
+                            <figure class="post-media mb-10 mt-10 b-r-10">
+                                <a href="#">
+                                    <img src="{% static "images/blog/single/6.jpg" %}" width="880" height="450" alt="post" />
+                                </a>
+                            </figure>
+                            <div class="section-title-main mb-2">
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        استفاده از    <b>  تخفیف‌ها  </b> و جشنواره‌ها
+                                    </h2>
+                                </div>
+                            </div>
+                            <p class="mb-4">
+                                بسیاری از فروشگاه‌های اینترنتی در مناسبت‌های مختلف، تخفیف‌ها و جشنواره‌های ویژه برگزار می‌کنند. اگر به دنبال خرید به‌صرفه هستید، حتماً از این فرصت‌ها استفاده کنید. برای اطلاع از این تخفیف‌ها می‌توانید در خبرنامه فروشگاه عضو شوید یا شبکه‌های اجتماعی آن‌ها را دنبال کنید. البته توجه داشته باشید که تخفیف‌های بیش از حد معمول می‌توانند گاهی نشانه عدم اصالت محصول باشند.
+                            </p>
+                            <div class="section-title-main mb-2">
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        نکته   <b>   پایانی  </b>
+                                    </h2>
+                                </div>
+                            </div>
+                            <p class="mb-4">
+                                خرید آنلاین اگر با دقت و هوشمندی انجام شود، می‌تواند تجربه‌ای لذت‌بخش و کارآمد باشد. با رعایت این 5 نکته طلایی، می‌توانید از امنیت خرید خود مطمئن باشید و بهترین محصولات را انتخاب کنید. فروشگاه با ارائه محصولات باکیفیت و تضمین بازگشت کالا، تجربه خریدی امن و لذت‌بخش را برای شما فراهم می‌کند. همین امروز به ما سر بزنید و خرید آنلاین خود را با اطمینان آغاز کنید!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="brand-section blue-section section-all appear-animate">
+            <div class="container ltr">
+                <div class="section-title-main">
+                    <h3 class="section-revers-subtitle p-relative">
+                        برترین خودرو ها
+                    </h3>
+                    <div class="section-revers-title-wrap">
+                        <h2 class="section-revers-title font-weight-normal lh-2">
+                            خودرهای <b>پرطرفداری</b> که شما انتخاب کرده اید .
+                        </h2>
+                    </div>
+                </div>
+                <div class="owl-carousel owl-theme row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2"
+                        data-owl-options="{
+                        'rtl':true,
+                        'nav': false,
+                        'dots': false,
+                        'loop': true,
+                        'margin': 20,
+                        'autoplay': true,
+                        'autoplayTimeout':3000,
+                        'autoHeight':true,
+                    'responsive': {
+                        '0': {
+                            'items': 2
+                        },
+                        '576': {
+                            'items': 3
+                        },
+                        '768': {
+                            'items': 4
+                        },
+                        '992': {
+                            'items': 5
+                        },
+                        '1200': {
+                            'items': 6
+                        }
+                    }
+                }">
+                    <figure class="brand-wrap bg-white banner-radius">
+                        <img src="{% static "images/brands/1.png" %}" alt="Brand" width="180" height="100" />
+                    </figure>
+                    <figure class="brand-wrap bg-white banner-radius">
+                        <img src="{% static "images/brands/2.png" %}" alt="Brand" width="180" height="100" />
+                    </figure>
+                    <figure class="brand-wrap bg-white banner-radius">
+                        <img src="{% static "images/brands/3.png" %}" alt="Brand" width="180" height="100" />
+                    </figure>
+                    <figure class="brand-wrap bg-white banner-radius">
+                        <img src="{% static "images/brands/4.png" %}" alt="Brand" width="180" height="100" />
+                    </figure>
+                    <figure class="brand-wrap bg-white banner-radius">
+                        <img src="{% static "images/brands/5.png" %}" alt="Brand" width="180" height="100" />
+                    </figure>
+                    <figure class="brand-wrap bg-white banner-radius">
+                        <img src="{% static "images/brands/6.png" %}" alt="Brand" width="180" height="100" />
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section class="section-bottom-padding appear-animate">
+            <div class="container rtl">
+                <div class="section-title-main">
+                    <h3 class="section-subtitle p-relative">
+                        اعضای تیم ما
+                    </h3>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title font-weight-normal lh-2">
+                            با اعضای  <b>شرکت ما </b> آشنا شوید.
+                        </h2>
+                    </div>
+                </div> <div class="row cols-sm-2 cols-md-4">
+                    <div class="member appear-animate" data-animation-options="{'name': 'fadeInLeftShorter'}">
+                        <figure class="banner-radius">
+                            <img src="{% static "images/subpages/team1.jpg" %}" alt="team member" width="280" height="280"
+                                    style="background-color: #EEE;">
+                            <div class="social-links mt-4">
+                                <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                            </div>
+                        </figure>
+                        <h4 class="member-name">علی محمدی</h4>
+                        <h5 class="member-job">تهران  / نماینده</h5>
+                    </div>
+                    <div class="member appear-animate"
+                            data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.3s'}">
+                        <figure class="banner-radius">
+                            <img src="{% static "images/subpages/team2.jpg" %}" alt="team member" width="280" height="280"
+                                    style="background-color: #121A1F;">
+                            <div class="social-links mt-4">
+                                <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                            </div>
+                        </figure>
+                        <h4 class="member-name">افسون هاشمی</h4>
+                        <h5 class="member-job">تهران  / نماینده</h5>
+                    </div>
+                    <div class="member appear-animate"
+                            data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.4s'}">
+                        <figure class="banner-radius">
+                            <img src="{% static "images/subpages/team3.jpg" %}" alt="team member" width="280" height="280"
+                                    style="background-color: #E8E7E3;">
+                            <div class="social-links mt-4">
+                                <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                            </div>
+                        </figure>
+                        <h4 class="member-name">افسون هاشمی</h4>
+                        <h5 class="member-job">تهران  / نماینده</h5>
+                    </div>
+                    <div class="member appear-animate"
+                            data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
+                        <figure class="banner-radius">
+                            <img src="{% static "images/subpages/team4.jpg" %}" alt="team member" width="280" height="280"
+                                    style="background-color: #465D7F;">
+                            <div class="social-links mt-4">
+                                <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                            </div>
+                        </figure>
+                        <h4 class="member-name">عرفان اسدی</h4>
+                        <h5 class="member-job">تهران  / نماینده</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock main %}
