@@ -37,7 +37,14 @@ class BlogsListView(View):
 
 class BlogDetailView(View):
 
-
     def get(self, request, slug):
-        blog = get_object_or_404(Blog, slug=slug)
-        return render(request, 'Blogs/blog-detail.html', {'blog': blog})
+
+        instance = get_object_or_404(Blog, slug=slug)
+
+        related_blogs = Blog.objects.filter(status="P", category=instance.category).order_by('?')[:5]
+
+        most_viewed_blogs = Blog.objects.filter(status="P").order_by('-views')[:3]
+
+        categories = Category.objects.all()
+
+        return render(request, 'Blogs/blog-detail.html', {'blog': instance, 'related' : related_blogs, 'most_viewed': most_viewed_blogs, 'categories': categories})

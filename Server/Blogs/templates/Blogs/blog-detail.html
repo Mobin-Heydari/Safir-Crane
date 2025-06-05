@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}لیست مقالات{% endblock title %}
+{% block keywords %}{% endblock keywords %}
+{% block description %}{% endblock description %}
+
+
+{% block main %}
+<main class="main bg-gray rtl text-right">
+    <div class="container">
+        <div class="page-header section-bottom-margin">
+            <ul class="breadcrumb">
+                <li><a href="{% url "home:home" %}"><i class="fa-light fa-home"></i></a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li><a href="{% url "home:home" %}">صفحه اصلی</a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li><a href="{% url "blogs:blog-list" %}">بلاگ ها</a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li>{{ blog.title }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-content ">
+        <div class="page-content with-sidebar">
+            <div class="container">
+                <div class="row gutter-lg">
+                    <div class="col-lg-9">
+                        <section class="details-section-main">
+                            <div class="container details-section-wrap">
+                                <div class="row details-section">
+                                    <div class="col-lg-7 details-section-right">
+                                        <div class="section-title-main">
+                                            <h1 class="section-subtitle p-relative">
+                                                {{ blog.category.name }}
+                                            </h1>
+                                            <div class="section-title-wrap">
+                                                <h2 class="section-title">
+                                                    {{ blog.title }}
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <p class="details-section-short">{{ blog.content }}</p>
+                                    </div>
+                                    <div class="col-lg-5 details-section-left">
+                                        <div class="details-section-img b-r-10">
+                                            <img src="{{ blog.image.url }}" alt="{{ blog.title }}" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="container content-section-main">
+                                <div class="row justify-content-start ">
+                                    <div class="col-lg-7 pr-0">
+                                        <div class="strip main-bg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row content-section-wrap">
+                                    <div class="post-details rtl">
+                                        <div class="post-body">
+                                            {% for content in blog.blog_contents.all %}
+                                                {% if content.title %}
+                                                    <div class="section-title-main mb-2">
+                                                        <div class="section-title-wrap">
+                                                            <h5 class="section-title">{{ content.title }}</h5>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                {% if content.content %}
+                                                    <p class="font-weight-semi-bold">
+                                                        {{ content.content }}
+                                                    </p>
+                                                {% endif %}
+                                                {% if content.image %}
+                                                    <figure class="post-media mb-10 mt-10 b-r-10">
+                                                        <a>
+                                                            <img src="{{ content.image.url }}" width="880" height="450" alt="post" />
+                                                        </a>
+                                                    </figure>
+                                                
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="other-section-wrap">
+                            <div class="container section-bottom-padding">
+                                <div class="related-posts">
+                                    <div class="section-title-main">
+                                        <h3 class="section-subtitle p-relative">
+                                            پست های مرتبط
+                                        </h3>
+                                        <div class="section-title-wrap">
+                                            <h2 class="section-title">
+                                                مقالات بروز و اخبار <b> جدید </b> ما
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="owl-carousel owl-theme row cols-lg-2 cols-sm-1" data-owl-options="{
+                                        'rtl':true,
+                                        'items': 1,
+                                        'margin': 20,
+                                        'loop': false,
+                                        'responsive': {
+                                            '576': {
+                                                'items': 1
+                                            },
+                                            '768': {
+                                                'items': 2
+                                            }
+                                        }
+                                    }">
+                                        {% for blog in related %}
+                                            <article class="post post-wrap mb-3">
+                                                <figure class="post-media post-media-wrap">
+                                                    <a href="{% url "blogs:blog-detail" blog.slug %}">
+                                                        <img src="{{ blog.image.url }}" width="430" height="300" alt="post" />
+                                                    </a>
+                                                </figure>
+                                                <div class="post-details post-details-wrap rtl">
+                                                    <div class="post-date-wrap"><i class="fa-light fa-calendar-days"></i><a href="" class="post-date">{{ blog.published_date }}</a></div>
+                                                    <div class="post-author-wrap">
+                                                        <span><i class="fa-light fa-comment-quote"></i><a href="" class="post-comment"><span> {{ blog.comments.all.count }} </span>  نظر </a></span>
+                                                    </div>
+                                                    <h4 class="post-title">
+                                                        <a href="{% url "blogs:blog-detail" blog.slug %}">{{ blog.title }}</a>
+                                                    </h4>
+                                                    <p class="post-content">{{ blog.content }}</p>
+                                                </div>
+                                            </article>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="comments">
+                                    <h3 class="title title-simple text-right text-normal font-weight-bold"></h3>
+                                    <div class="section-title-main">
+                                        <h3 class="section-subtitle p-relative">
+                                            شما دیدگاه
+                                        </h3>
+                                        <div class="section-title-wrap">
+                                            <h2 class="section-title font-weight-normal">
+                                                3 نظر  <b> ثبت </b> شده است .
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="comment">
+                                                <figure class="comment-media">
+                                                    <a href="#">
+                                                        <img src="images/blog/comments/2.jpg" alt="avatar">
+                                                    </a>
+                                                </figure>
+                                                <div class="comment-body rtl text-right">
+                                                    <div class="comment-user">
+                                                        <h4><a href="#">افسون هاشمی</a></h4>
+                                                        <span class="comment-date">چهارشنبه، 27 آبان 1402</span>
+                                                    </div>
+                                                    <div class="comment-content mb-2">
+                                                        <p>
+                                                            بسیار خوب که این محصول را انتخاب کردم! کیفیت بسیار بالا و قابل توجه است. بسته‌بندی محکم و ارسال سریع نیز از دقت و حرفه‌ای بودن شما خبر می‌دهد.
+                                                        </p>
+                                                    </div>
+                                                    <a href="#" class="btn btn-link btn-reveal-left">
+                                                        پاسخ دهید <i class="fa-solid fa-chevrons-left"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <div class="comment">
+                                                        <figure class="comment-media">
+                                                            <a href="#">
+                                                                <img src="images/blog/comments/1.jpg" alt="avatar">
+                                                            </a>
+                                                        </figure>
+                                                        <div class="comment-body rtl text-right">
+                                                            <div class="comment-user">
+                                                                <h4><a href="#">افسون هاشمی</a></h4>
+                                                                <span class="comment-date">چهارشنبه، 27 آبان 1402</span>
+                                                            </div>
+                                                            <div class="comment-content mb-2">
+                                                                <p>
+                                                                    بسیار خوب که این محصول را انتخاب کردم! کیفیت بسیار بالا و قابل توجه است. بسته‌بندی محکم و ارسال سریع نیز از دقت و حرفه‌ای بودن شما خبر می‌دهد.
+                                                                </p>
+                                                            </div>
+                                                            <a href="#" class="btn btn-link btn-reveal-left">
+                                                                پاسخ دهید <i class="fa-solid fa-chevrons-left"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="comment">
+                                                <figure class="comment-media">
+                                                    <a href="#">
+                                                        <img src="images/blog/comments/2.jpg" alt="avatar">
+                                                    </a>
+                                                </figure>
+                                                <div class="comment-body rtl text-right">
+                                                    <div class="comment-user">
+                                                        <h4><a href="#">افسون هاشمی</a></h4>
+                                                        <span class="comment-date">چهارشنبه، 27 آبان 1402</span>
+                                                    </div>
+                                                    <div class="comment-content mb-2">
+                                                        <p>
+                                                            بسیار خوب که این محصول را انتخاب کردم! کیفیت بسیار بالا و قابل توجه است. بسته‌بندی محکم و ارسال سریع نیز از دقت و حرفه‌ای بودن شما خبر می‌دهد.
+                                                        </p>
+                                                    </div>
+                                                    <a href="#" class="btn btn-link btn-reveal-left">
+                                                        پاسخ دهید <i class="fa-solid fa-chevrons-left"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="reply rtl text-right">
+                                    <div class="section-title-main">
+                                        <h3 class="section-subtitle p-relative">
+                                            دیدگاه خود را بنویسید
+                                        </h3>
+                                        <div class="section-title-wrap">
+                                            <h2 class="section-title font-weight-normal">
+                                                پر کردن موارددار  <b> ستاره </b> الزامی است.
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <form action="#">
+                                        <textarea id="reply-message" cols="30" rows="6" class="form-control mb-4"
+                                                    placeholder="دیدگاه شما *" required></textarea>
+                                        <div class="row">
+                                            <div class="col-md-12 mb-5">
+                                                <input type="text" class="form-control" id="reply-name" name="reply-name"
+                                                        placeholder="نام و نام خانوادگی *" required />
+                                            </div>
+                                            <div class="col-md-12 mb-5">
+                                                <input type="email" class="form-control text-left" id="reply-email" name="reply-email"
+                                                        placeholder="آدرس ایمیل *" required />
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-blue">
+                                            ثبت دیدگاه
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <aside class="col-lg-3 sidebar sidebar-fixed sticky-sidebar-wrapper rtl">
+                        <div class="sidebar-overlay">
+                        </div>
+                        <a class="sidebar-close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </a>
+                        <a class="sidebar-toggle"><i class="fas fa-chevron-right"></i></a>
+                        <div class="sidebar-content">
+                            <div class="sticky-sidebar" data-sticky-options="{'top': 89, 'bottom': 70}">
+                                <div class="widget widget-search">
+                                    <form action="{% url "blogs:blog-list" %}" method="get" class="input-wrapper input-wrapper-inline btn-absolute">
+                                        <input type="text" class="form-control" name="search" autocomplete="off" placeholder="جستجو در بلاگ ها" required />
+                                        <button class="btn btn-search btn-link" type="submit">
+                                            <i class="fa-light fa-search"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="widget widget-collapsible">
+                                    <h6 class="widget-title"><i class="fa-light fa-newspaper"></i>دسته بندی بلاگ ها</h6>
+                                    <ul class="widget-body filter-items search-ul">
+                                        {% for category in categories %}
+                                            <li>
+                                                <a href="{% url "blogs:blog-list-category" category.slug %}">{{ category.name }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="widget widget-collapsible">
+                                    <h6 class="widget-title"><i class="fa-light fa-eye"></i> بلاگ ها پربازدید</h6>
+                                    <div class="widget-body ">
+                                        <div class="post-col">
+                                            {% for blog in most_viewed %}
+                                                <div class="post post-list-sm">
+                                                    <figure class="post-media">
+                                                        <a href="{% url "blogs:blog-detail" blog.slug %}">
+                                                            <img src="{{ blog.image.url }}" width="180" height="90" alt="{{ blog.title }}" />
+                                                        </a>
+                                                    </figure>
+                                                    <div class="post-details rtl">
+                                                        <h4 class="post-title">
+                                                            <a href="{% url "blogs:blog-detail" blog.slug %}">{{ blog.title }}</a>
+                                                        </h4>
+                                                        <div class="post-meta">
+                                                            <span><i class="fa-light fa-calendar-days "></i><a href="#" class="post-date">1404/08/02</a></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main %}
