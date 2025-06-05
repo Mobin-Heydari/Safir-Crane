@@ -15,7 +15,7 @@
                 <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
                 <li><a href="{% url "home:home" %}">صفحه ی اصلی</a></li>
                 <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
-                <li>لیست مقالات</li>
+                <li>لیست بلاگ ها</li>
             </ul>
         </div>
     </div>
@@ -24,31 +24,44 @@
             <div class="row gutter-lg">
                 <div class="col-lg-9">
                     <div class="posts grid post-grid row" data-grid-options="{'layoutMode': 'fitRows'}">
-                        {% for blog in blogs %}
-                            <div class="grid-item col-md-6 col-xs-6">
-                                <article class="post post-wrap mb-3">
-                                    <figure class="post-media post-media-wrap">
-                                        <a href="{% url "blogs:blog-detail" blog.slug %}">
-                                            <img src="{{ blog.image.url }}" width="430" height="300" alt="{{ blog.title }}" />
-                                        </a>
-                                    </figure>
-                                    <div class="post-details post-details-wrap rtl">
-                                        <div class="post-main rtl">
-                                            <div class="post-date-wrap"><i class="fa-light fa-calendar-days"></i><a class="post-date">{{ blog.published_date }}</a></div>
-                                            <div class="post-author-wrap">
-                                                <span class="post-author"><i class="fa-thin fa-user-circle"></i>{{ blog.title }}</span>
-                                                <span><i class="fa-light fa-comment-quote"></i><a class="post-comment"><span> {{ blog.comments.all.count }} </span>  نظر </a></span>
+                        {% if blogs %}
+                            {% for blog in blogs %}
+                                <div class="grid-item col-md-6 col-xs-6">
+                                    <article class="post post-wrap mb-3">
+                                        <figure class="post-media post-media-wrap">
+                                            <a href="{% url "blogs:blog-detail" blog.slug %}">
+                                                <img src="{{ blog.image.url }}" width="430" height="300" alt="{{ blog.title }}" />
+                                            </a>
+                                        </figure>
+                                        <div class="post-details post-details-wrap rtl">
+                                            <div class="post-main rtl">
+                                                <div class="post-date-wrap"><i class="fa-light fa-calendar-days"></i><a class="post-date">{{ blog.published_date }}</a></div>
+                                                <div class="post-author-wrap">
+                                                    <span class="post-author"><i class="fa-thin fa-user-circle"></i>{{ blog.title }}</span>
+                                                    <span><i class="fa-light fa-comment-quote"></i><a class="post-comment"><span> {{ blog.comments.all.count }} </span>  نظر </a></span>
+                                                </div>
+                                                <h4 class="post-title">
+                                                    <a href="{% url "blogs:blog-detail" blog.slug %}">
+                                                        {{ blog.content }}
+                                                    </a>
+                                                </h4>
                                             </div>
-                                            <h4 class="post-title">
-                                                <a href="{% url "blogs:blog-detail" blog.slug %}">
-                                                    {{ blog.title }}
-                                                </a>
-                                            </h4>
                                         </div>
-                                    </div>
-                                </article>
-                            </div>
-                        {% endfor %}
+                                    </article>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="page-content">
+                                <section class="section-bottom-padding d-flex flex-column justify-content-center align-items-center text-center pl-3 pr-3 ">
+                                    <img src="{% static "images/subpages/404.png" %}" alt="error 404" width="609" height="131">
+                                    <h4 class="mt-7 mb-0">بلاگی یافت نشد.</h4>
+                                    <p class="text-grey">
+                                        مثل اینکه بلاگی در میست بلاگ ها پیدا نشد.
+                                    </p>
+                                    <a href="{% url "blogs:blog-list" %}" class="btn btn-blue mb-4">رفتن به صفحه لیست بلاگ ها  </a>
+                                </section>
+                            </div>    
+                        {% endif %}
                     </div>
                     <ul class="pagination mt-5 rtl">
                         <li class="page-item disabled">
@@ -78,16 +91,15 @@
                     <div class="sidebar-content">
                         <div class="sticky-sidebar" data-sticky-options="{'top': 89, 'bottom': 70}">
                             <div class="widget widget-search">
-                                <form action="#" class="input-wrapper input-wrapper-inline btn-absolute">
-                                    <input type="text" class="form-control" name="search" autocomplete="off"
-                                            placeholder="جستجو در مقالات" required />
+                                <form method="get" class="input-wrapper input-wrapper-inline btn-absolute">
+                                    <input type="text" class="form-control" name="search" autocomplete="off" placeholder="جستجو در بلاگ ها" required />
                                     <button class="btn btn-search btn-link" type="submit">
                                         <i class="fa-light fa-search"></i>
                                     </button>
                                 </form>
                             </div>
                             <div class="widget widget-collapsible">
-                                <h6 class="widget-title"><i class="fa-light fa-newspaper"></i>دسته بندی مقالات</h6>
+                                <h6 class="widget-title"><i class="fa-light fa-newspaper"></i>دسته بندی بلاگ ها</h6>
                                 <ul class="widget-body filter-items search-ul">
                                     {% for category in categories %}
                                         <li>
@@ -97,7 +109,7 @@
                                 </ul>
                             </div>
                             <div class="widget widget-collapsible">
-                                <h6 class="widget-title"><i class="fa-light fa-eye"></i> مقالات پربازدید</h6>
+                                <h6 class="widget-title"><i class="fa-light fa-eye"></i> بلاگ ها پربازدید</h6>
                                 <div class="widget-body ">
                                     <div class="post-col">
                                         {% for blog in most_viewed %}

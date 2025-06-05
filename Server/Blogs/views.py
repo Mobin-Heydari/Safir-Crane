@@ -10,11 +10,23 @@ from .models  import Blog, Category, BlogComment, BlogContent
 class BlogsListView(View):
 
     def get(self, request, category_slug=None):
+
         blogs = Blog.objects.filter(status="P")
+
         most_viewed_blogs = blogs.order_by('-views')[:3]
+
         categories = Category.objects.all()
+
         if category_slug is not None:
-            blogs.filter(category__slug=category_slug)
+            blogs = blogs.filter(category__slug=category_slug)
+
+        searched_data = request.GET.get('search')
+
+        print(searched_data)
+    
+        if searched_data is not None:
+            blogs = blogs.filter(title__icontains=searched_data)
+
         return render(request, 'Blogs/blog-list.html', {'blogs': blogs, 'most_viewed': most_viewed_blogs, 'categories': categories})
 
 
