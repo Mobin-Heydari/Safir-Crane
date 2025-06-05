@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'Contacts.apps.ContactsConfig',
     'Blogs.apps.BlogsConfig',
     'FAQs.apps.FaqsConfig',
-    'Home.apps.HomeConfig',
+    'Home.apps.HomeConfig', 
+    'Aboutus.apps.AboutusConfig', 
 ]
 
 MIDDLEWARE = [
