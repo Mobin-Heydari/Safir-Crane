@@ -108,6 +108,8 @@ class BlogComment(models.Model):
         related_name='blog_comments'
     )
 
+    name = models.CharField(verbose_name="نام و نام خانوادگی", max_length=50)
+
     content = models.TextField(verbose_name="محتوا")
 
     created_at = models.DateTimeField(verbose_name="تاریخ ایجاد", auto_now_add=True)
