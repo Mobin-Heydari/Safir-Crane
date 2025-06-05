@@ -29,7 +29,7 @@
                                 <article class="post post-wrap mb-3">
                                     <figure class="post-media post-media-wrap">
                                         <a href="{% url "blogs:blog-detail" blog.slug %}">
-                                            <img src="{{ blog.image.url }}" width="430" height="300" alt="post" />
+                                            <img src="{{ blog.image.url }}" width="430" height="300" alt="{{ blog.title }}" />
                                         </a>
                                     </figure>
                                     <div class="post-details post-details-wrap rtl">
@@ -89,116 +89,34 @@
                             <div class="widget widget-collapsible">
                                 <h6 class="widget-title"><i class="fa-light fa-newspaper"></i>دسته بندی مقالات</h6>
                                 <ul class="widget-body filter-items search-ul">
-                                    <li>
-                                        <a href="#">راهنمای خرید و اجاره خودرو </a>
-                                        <ul class="children">
-                                            <li><a href="blog.html">نکات مهم هنگام خرید خودرو </a></li>
-                                            <li><a href="blog.html">راهنمای  خودرو برای مسافرت</a></li>
-                                            <li><a href="blog.html">تفاوت اجاره کوتاه‌مدت و بلندمدت</a></li>
-                                            <li><a href="blog.html">مقایسه خرید خودرو  نو و دست دوم</a></li>
-                                            <li><a href="blog.html">مدارک و شرایط لازم برای اجاره خودرو </a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">معرفی خودرو ها و بررسی تخصصی</a>
-                                        <ul class="children">
-                                            <li><a href="blog.html">بررسی فنی و مشخصات خودرو ها</a></li>
-                                            <li><a href="blog.html">مقایسه مدل‌های مختلف از یک برند</a></li>
-                                            <li><a href="blog.html">بهترین خودرو های اقتصادی برای خرید</a></li>
-                                            <li><a href="blog.html">ماشین‌های لوکس مناسب اجاره</a></li>
-                                            <li><a href="blog.html">تحلیل بازار خودرو  در سال جدید</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">نکات فنی و نگهداری خودرو </a>
-                                        <ul class="children">
-                                            <li><a href="blog.html">نحوه نگهداری از خودرو های اجاره‌ای</a></li>
-                                            <li><a href="blog.html">بهترین روش‌های کاهش مصرف سوخت</a></li>
-                                            <li><a href="blog.html">بررسی مشکلات رایج در خودرو ها</a></li>
-                                            <li><a href="blog.html">راهنمای سرویس‌های دوره‌ای</a></li>
-                                            <li><a href="blog.html">تأثیر شرایط آب‌وهوا بر عملکرد خودرو </a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">اخبار و ترندهای صنعت خودرو </a>
-                                        <ul class="children">
-                                            <li><a href="blog.html">جدیدترین خودرو های وارداتی</a></li>
-                                            <li><a href="blog.html">تأثیر قوانین جدید بر بازار خودرو </a></li>
-                                            <li><a href="blog.html">پیش‌بینی قیمت خودرو  در آینده</a></li>
-                                            <li><a href="blog.html">تکنولوژی‌های نوین در صنعت خودرو سازی</a></li>
-                                            <li><a href="blog.html">مقایسه خودرو های برقی با بنزینی</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"> تجربه رانندگی و سفر با خودرو </a>
-                                        <ul class="children">
-                                            <li><a href="blog.html">بهترین خودرو ها برای سفرهای جاده‌ای</a></li>
-                                            <li><a href="blog.html">تجربه  خودرو در شهرهای مختلف</a></li>
-                                            <li><a href="blog.html">نکات ایمنی هنگام رانندگی طولانی</a></li>
-                                            <li><a href="blog.html">تجهیزات ضروری برای سفر با خودرو </a></li>
-                                            <li><a href="blog.html">بهترین مسیرهای جاده‌ای برای گردشگری</a></li>
-                                        </ul>
-                                    </li>
+                                    {% for category in categories %}
+                                        <li>
+                                            <a href="{% url "blogs:blog-list-category" category.slug %}">{{ category.name }}</a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <div class="widget widget-collapsible">
                                 <h6 class="widget-title"><i class="fa-light fa-eye"></i> مقالات پربازدید</h6>
                                 <div class="widget-body ">
                                     <div class="post-col">
-                                        <div class="post post-list-sm">
-                                            <figure class="post-media">
-                                                <a href="blog.html">
-                                                    <img src="{% static "images/blog/1_xs.jpg" %}" width="180" height="90"
-                                                            alt="post" />
-                                                </a>
-                                            </figure>
-                                            <div class="post-details rtl">
-                                                <h4 class="post-title">
-                                                    <a href="blog.html">
-                                                        چطور خودرو ی مناسب اجاره کنیم؟
+                                        {% for blog in most_viewed %}
+                                            <div class="post post-list-sm">
+                                                <figure class="post-media">
+                                                    <a href="{% url "blogs:blog-detail" blog.slug %}">
+                                                        <img src="{{ blog.image.url }}" width="180" height="90" alt="{{ blog.title }}" />
                                                     </a>
-                                                </h4>
-                                                <div class="post-meta">
-                                                    <span><i class="fa-light fa-calendar-days "></i><a href="#" class="post-date">1404/08/02</a></span>
+                                                </figure>
+                                                <div class="post-details rtl">
+                                                    <h4 class="post-title">
+                                                        <a href="{% url "blogs:blog-detail" blog.slug %}">{{ blog.title }}</a>
+                                                    </h4>
+                                                    <div class="post-meta">
+                                                        <span><i class="fa-light fa-calendar-days "></i><a href="#" class="post-date">1404/08/02</a></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="post post-list-sm">
-                                            <figure class="post-media">
-                                                <a href="blog.html">
-                                                    <img src="{% static "images/blog/2_xs.jpg" %}" width="180" height="90"
-                                                            alt="post" />
-                                                </a>
-                                            </figure>
-                                            <div class="post-details rtl">
-                                                <h4 class="post-title">
-                                                    <a href="blog.html">
-                                                        مقایسه ماشین‌های اقتصادی و لوکس
-                                                    </a>
-                                                </h4>
-                                                <div class="post-meta">
-                                                    <span><i class="fa-light fa-calendar-days "></i><a href="#" class="post-date">1404/08/02</a></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post post-list-sm">
-                                            <figure class="post-media">
-                                                <a href="blog.html">
-                                                    <img src="{% static "images/blog/3_xs.jpg" %}" width="90" height="90"
-                                                            alt="post" />
-                                                </a>
-                                            </figure>
-                                            <div class="post-details rtl">
-                                                <h4 class="post-title">
-                                                    <a href="blog.html">
-                                                        ۵ نکته طلایی برای نگهداری خودرو
-                                                    </a>
-                                                </h4>
-                                                <div class="post-meta">
-                                                    <span><i class="fa-light fa-calendar-days "></i><a href="#" class="post-date">1404/08/02</a></span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
