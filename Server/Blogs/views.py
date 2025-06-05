@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.core.paginator import Paginator
 from django.views import View
 
 from .models  import Blog, Category, BlogComment, BlogContent
-
+from .forms import CommentForm
 
 
 
@@ -47,4 +48,28 @@ class BlogDetailView(View):
 
         categories = Category.objects.all()
 
-        return render(request, 'Blogs/blog-detail.html', {'blog': instance, 'related' : related_blogs, 'most_viewed': most_viewed_blogs, 'categories': categories})
+        form = CommentForm
+
+        return render(request, 'Blogs/blog-detail.html', {'blog': instance, 'related' : related_blogs, 'most_viewed': most_viewed_blogs, 'categories': categories, 'form': form})
+    
+
+    def post(self, request, slug):
+        instance = get_object_or_404(Blog, slug=slug)
+
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+
+            cd = form.cleaned_data
+
+            comment = BlogComment.objects.create(
+                blog=instance,
+                content=cd['content'],
+                name=cd['name'],
+            )
+
+            comment.save()
+
+            return redirect('blogs:blog-detail', slug)
+        
+        return render(request, 'Blogs/blog-detail.html', {'blog': instance, 'form': form})

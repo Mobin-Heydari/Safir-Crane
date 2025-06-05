@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}لیست مقالات{% endblock title %}
+{% block title %}{{ blog.title }}{% endblock title %}
 {% block keywords %}{% endblock keywords %}
 {% block description %}{% endblock description %}
 
@@ -144,82 +144,26 @@
                                         </h3>
                                         <div class="section-title-wrap">
                                             <h2 class="section-title font-weight-normal">
-                                                3 نظر  <b> ثبت </b> شده است .
+                                                {{ blog.blog_comments.all.count }} نظر  <b> ثبت </b> شده است .
                                             </h2>
                                         </div>
                                     </div>
                                     <ul>
-                                        <li>
-                                            <div class="comment">
-                                                <figure class="comment-media">
-                                                    <a href="#">
-                                                        <img src="images/blog/comments/2.jpg" alt="avatar">
-                                                    </a>
-                                                </figure>
-                                                <div class="comment-body rtl text-right">
-                                                    <div class="comment-user">
-                                                        <h4><a href="#">افسون هاشمی</a></h4>
-                                                        <span class="comment-date">چهارشنبه، 27 آبان 1402</span>
-                                                    </div>
-                                                    <div class="comment-content mb-2">
-                                                        <p>
-                                                            بسیار خوب که این محصول را انتخاب کردم! کیفیت بسیار بالا و قابل توجه است. بسته‌بندی محکم و ارسال سریع نیز از دقت و حرفه‌ای بودن شما خبر می‌دهد.
-                                                        </p>
-                                                    </div>
-                                                    <a href="#" class="btn btn-link btn-reveal-left">
-                                                        پاسخ دهید <i class="fa-solid fa-chevrons-left"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <ul>
-                                                <li>
-                                                    <div class="comment">
-                                                        <figure class="comment-media">
-                                                            <a href="#">
-                                                                <img src="images/blog/comments/1.jpg" alt="avatar">
-                                                            </a>
-                                                        </figure>
-                                                        <div class="comment-body rtl text-right">
-                                                            <div class="comment-user">
-                                                                <h4><a href="#">افسون هاشمی</a></h4>
-                                                                <span class="comment-date">چهارشنبه، 27 آبان 1402</span>
-                                                            </div>
-                                                            <div class="comment-content mb-2">
-                                                                <p>
-                                                                    بسیار خوب که این محصول را انتخاب کردم! کیفیت بسیار بالا و قابل توجه است. بسته‌بندی محکم و ارسال سریع نیز از دقت و حرفه‌ای بودن شما خبر می‌دهد.
-                                                                </p>
-                                                            </div>
-                                                            <a href="#" class="btn btn-link btn-reveal-left">
-                                                                پاسخ دهید <i class="fa-solid fa-chevrons-left"></i>
-                                                            </a>
+                                        {% for comment in blog.blog_comments.all %}
+                                            <li>
+                                                <div class="comment">
+                                                    <div class="comment-body rtl text-right">
+                                                        <div class="comment-user">
+                                                            <h4><a href="">{{ comment.name }}</a></h4>
+                                                            <span class="comment-date">{{ comment.created_at }}</span>
+                                                        </div>
+                                                        <div class="comment-content mb-2">
+                                                            <p>{{ comment.content }}</p>
                                                         </div>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <div class="comment">
-                                                <figure class="comment-media">
-                                                    <a href="#">
-                                                        <img src="images/blog/comments/2.jpg" alt="avatar">
-                                                    </a>
-                                                </figure>
-                                                <div class="comment-body rtl text-right">
-                                                    <div class="comment-user">
-                                                        <h4><a href="#">افسون هاشمی</a></h4>
-                                                        <span class="comment-date">چهارشنبه، 27 آبان 1402</span>
-                                                    </div>
-                                                    <div class="comment-content mb-2">
-                                                        <p>
-                                                            بسیار خوب که این محصول را انتخاب کردم! کیفیت بسیار بالا و قابل توجه است. بسته‌بندی محکم و ارسال سریع نیز از دقت و حرفه‌ای بودن شما خبر می‌دهد.
-                                                        </p>
-                                                    </div>
-                                                    <a href="#" class="btn btn-link btn-reveal-left">
-                                                        پاسخ دهید <i class="fa-solid fa-chevrons-left"></i>
-                                                    </a>
                                                 </div>
-                                            </div>
-                                        </li>
+                                            </li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="reply rtl text-right">
@@ -233,19 +177,14 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <form action="#">
-                                        <textarea id="reply-message" cols="30" rows="6" class="form-control mb-4"
-                                                    placeholder="دیدگاه شما *" required></textarea>
+                                    <form method="post">
+                                        {% csrf_token %}
                                         <div class="row">
                                             <div class="col-md-12 mb-5">
-                                                <input type="text" class="form-control" id="reply-name" name="reply-name"
-                                                        placeholder="نام و نام خانوادگی *" required />
-                                            </div>
-                                            <div class="col-md-12 mb-5">
-                                                <input type="email" class="form-control text-left" id="reply-email" name="reply-email"
-                                                        placeholder="آدرس ایمیل *" required />
+                                                {{ form.name }}
                                             </div>
                                         </div>
+                                        {{ form.content }}
                                         <button type="submit" class="btn btn-blue">
                                             ثبت دیدگاه
                                         </button>
