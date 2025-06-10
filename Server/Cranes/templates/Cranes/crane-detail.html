@@ -1,0 +1,822 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}{% endblock title %}
+{% block keywords %}{% endblock keywords %}
+{% block description %}{% endblock description %}
+
+
+{% block main %}
+<main class="main bg-gray single-product rtl text-right">
+    <div class="page-content">
+        <div class="container ltr section-bottom-padding">
+            <div class="row main-content-wrap">
+                <div class="container">
+                    <div class="page-header section-bottom-margin">
+                        <ul class="breadcrumb">
+                            <li><a href="{% url "home:home" %}"><i class="fa-light fa-home"></i></a></li>
+                            <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                            <li><a href="{% url "home:home" %}">صفحه ی اصلی</a></li>
+                            <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                            <li><a href="{% url "cranes:crane-list" %}">جرثقیل ها</a></li>
+                            <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                            <li>{{ crane.name }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="col-lg-3 sidebar sidebar-fixed sticky-sidebar-wrapper sidebar-toggle-remain shop-sidebar rtl">
+                    <div class="sidebar-overlay">
+                        <a class="sidebar-close" href="#"><i class="fa-solid fa-xmark"></i></a>
+                    </div>
+                    <a href="#" class="sidebar-toggle"><i class="fas fa-chevron-right"></i></a>
+                    <div class="sidebar-content">
+                        <div class="sticky-sidebar">
+                            <div class="service-list mb-4 rtl text-right">
+                                <div class="driver-wrap">
+                                    <div class="icon-box with-driver driver">
+                                        <div class="driver-header">
+                                            <h4>قیمت اجاره {{ crane.name }}</h4>
+                                            <h5>با راننده</h5>
+                                        </div>
+                                        <div class="rate-icon">
+                                            <i class="fa-light fa-id-card"></i>
+                                        </div>
+                                        <div class=" driver-content ">
+                                            <h6 class="text-dark"> 2024 - 2022</h6>
+                                            <ul class="widget-body filter-items">
+                                                <li class="store-name">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    <span>از ۳ تا ۶ روز: </span><span class="span-left">۱,۳۹۰,۰۰۰ تومان</span>
+                                                </li>
+                                                <li class="seller-name">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    <span> از ۷ تا ۲۱ روز :</span><span class="span-left">۱,۲۹۰,۰۰۰ تومان</span>
+                                                </li>
+                                                <li class="store-address">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    <span>بیشتر از ۲۱ روز  :</span><span class="span-left">۱,۱۹۰,۰۰۰ تومان</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="driver-wrap">
+                                    <div class="icon-box with-driver driver">
+                                        <div class="driver-header">
+                                            <h4>قیمت اجاره {{ crane.name }}</h4>
+                                            <h5>بدون راننده</h5>
+                                        </div>
+                                        <div class="rate-icon">
+                                            <i class="fa-light fa-car-rear"></i>
+                                        </div>
+                                        <div class=" driver-content ">
+                                            <h6 class="text-dark"> 2024 - 2022</h6>
+                                            <ul class="widget-body filter-items">
+                                                <li class="store-name">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    <span>از ۳ تا ۶ روز: </span><span class="span-left">۱,۳۹۰,۰۰۰ تومان</span>
+                                                </li>
+                                                <li class="seller-name">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    <span> از ۷ تا ۲۱ روز :</span><span class="span-left">۱,۲۹۰,۰۰۰ تومان</span>
+                                                </li>
+                                                <li class="store-address">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    <span>بیشتر از ۲۱ روز  :</span><span class="span-left">۱,۱۹۰,۰۰۰ تومان</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <div class="col-lg-9 rtl">
+                    <div class="product product-single col bg-white-r">
+                        <div class="col-md-12">
+                            <div class="product-details rtl">
+                                <h1 class="product-name">
+                                    {{ crane.name }}
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="product-gallery">
+                                <div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1 gutter-no ltr">
+                                    <figure class="product-image">
+                                        <img src="{{ crane.image.url }}" data-zoom-image="{{ crane.image.url }}" alt="{{ crane.name }}" width="800" height="900">
+                                    </figure>
+                                    {% for image in crane.crane_images.all %}
+                                        <figure class="product-image">
+                                            <img src="{{ image.image.url  }}" data-zoom-image="{{ image.image.url }}" alt="{{ crane.name }}" width="800" height="900">
+                                        </figure>
+                                    {% endfor %}
+                                </div>
+                                <div class="product-thumbs-wrap ltr">
+                                    <div class="product-thumbs">
+                                        <div class="product-thumb active">
+                                            <img src="{{ crane.image.url }}" alt="{{ crane.name }}" width="109" height="122">
+                                        </div>
+                                        {% for image in crane.crane_images.all %}
+                                            <div class="product-thumb">
+                                                <img src="{{ image.image.url }}" alt="{{ crane.name }}" width="109" height="122">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <button class="thumb-up disabled">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                    <button class="thumb-down disabled">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bg-white-r mb-4">
+                            {% for content in crane.crane_contents.all %}
+                                <div class="row mt-6">
+                                    <div class="col-md-12">
+                                        <h5 class="description-title mb-4 font-weight-semi-bold">{{ content.title }}</h5>
+                                        <p class="mb-2">{{ content.content }}</p>
+                                        <div>
+                                            <img src="{{ content.image.url }}" alt="{{ content.title }}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    <div class="row bg-white-r mb-4">
+                        <div class="container">
+                            <div class="col-md-12">
+                                <div class="section-title-main">
+                                    <h3 class="section-subtitle p-relative">
+                                        خودرو  های مرتبط
+                                    </h3>
+                                    <div class="section-title-wrap">
+                                        <h2 class="section-title">
+                                            برترین خودرهای <b> مرتبط </b> با انتخاب شما
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-carousel owl-theme category-slider row appear-animate" data-owl-options='{
+                                "nav": false,
+                                "dots": true,
+                                "margin": 20,
+                                "loop": true,
+                                "autoplay": true,
+                                "autoplayTimeout":3000,
+                                "rtl":true,
+                                "responsive": {
+                                    "0": {
+                                        "items": 1
+                                    },
+                                    "576": {
+                                        "items": 2
+                                    },
+                                    "768": {
+                                        "items": 3
+                                    },
+                                    "992": {
+                                        "items": 3,
+                                        "dots": false
+                                    }
+                                }
+                            }'>
+                                <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                                    <figure class="product-media">
+                                        <a href="product.html">
+                                            <img src="images/products/1.jpg" alt="product" width="280" height="315">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist"
+                                                title="علاقه ها">
+                                                <i class="fa-light fa-heart"></i>
+                                            </a>
+                                        </div>
+                                        <div class="featured-wrap"><span class="featured-text">بنز</span><span class="featured-text featured-special ">ویژه</span></div>
+                                    </figure>
+                                    <div class="product-details rtl b-r-bottom">
+                                        <h3 class="product-name">
+                                            <a href="product.html">Benz S-Class</a>
+                                        </h3>
+                                        <div class="listing-features">
+                                            <div class="ratings-container">
+                                                <div class="ratings-full">
+                                                    <span class="ratings" style="width:60%"></span>
+                                                    <span class="tooltiptext tooltip-top"></span>
+                                                </div>
+                                                <a href="product.html" class="rating-reviews">(3.0 ) از 160 بررسی</a>
+                                            </div>
+                                        </div>
+                                        <div class="listing-details-group">
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-01.svg" alt="Auto"></span>
+                                                    <p>اتوماتیک</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-02.svg" alt="14 KM"></span>
+                                                    <p>14 KM</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-03.svg" alt="Diesel"></span>
+                                                    <p>بنزینی</p>
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-04.svg" alt="Basic"></span>
+                                                    <p>پایه</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-05.svg" alt="2022"></span>
+                                                    <p>2022</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-06.svg" alt="Persons"></span>
+                                                    <p>5 نفره</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="listing-price-details">
+                                            <p>شروع قیمت :  </p>
+                                            <span>2,900,000</span>
+                                            <p> تومان</p>
+                                        </div>
+                                        <div class="listing-location-details">
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-location-dot"></i>
+                                                </span>ایران , تهران
+                                            </div>
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-files"></i>
+                                                </span>
+                                                <h6>1,400,000 <span>ودیعه خلافی</span></h6>
+                                            </div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn btn-blue btn-blue-100 btn-quickview" title="مشاهده و انتخاب ">
+                                                جزئیات و اجاره
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                                    <figure class="product-media">
+                                        <a href="product.html">
+                                            <img src="images/products/2.jpg" alt="product" width="280" height="315">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist"
+                                                title="علاقه ها">
+                                                <i class="fa-light fa-heart"></i>
+                                            </a>
+                                        </div>
+                                        <div class="featured-wrap"><span class="featured-text">بنز</span><span class="featured-text featured-special ">ویژه</span></div>
+                                    </figure>
+                                    <div class="product-details rtl b-r-bottom">
+                                        <h3 class="product-name">
+                                            <a href="product.html">Benz S-Class</a>
+                                        </h3>
+                                        <div class="listing-features">
+                                            <div class="ratings-container">
+                                                <div class="ratings-full">
+                                                    <span class="ratings" style="width:60%"></span>
+                                                    <span class="tooltiptext tooltip-top"></span>
+                                                </div>
+                                                <a href="product.html" class="rating-reviews">(3.0 ) از 160 بررسی</a>
+                                            </div>
+                                        </div>
+                                        <div class="listing-details-group">
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-01.svg" alt="Auto"></span>
+                                                    <p>اتوماتیک</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-02.svg" alt="14 KM"></span>
+                                                    <p>14 KM</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-03.svg" alt="Diesel"></span>
+                                                    <p>بنزینی</p>
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-04.svg" alt="Basic"></span>
+                                                    <p>پایه</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-05.svg" alt="2022"></span>
+                                                    <p>2022</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-06.svg" alt="Persons"></span>
+                                                    <p>5 نفره</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="listing-price-details">
+                                            <p>شروع قیمت :  </p>
+                                            <span>2,900,000</span>
+                                            <p> تومان</p>
+                                        </div>
+                                        <div class="listing-location-details">
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-location-dot"></i>
+                                                </span>ایران , تهران
+                                            </div>
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-files"></i>
+                                                </span>
+                                                <h6>1,400,000 <span>ودیعه خلافی</span></h6>
+                                            </div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn btn-blue btn-blue-100 btn-quickview" title="مشاهده و انتخاب ">
+                                                جزئیات و اجاره
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                                    <figure class="product-media">
+                                        <a href="product.html">
+                                            <img src="images/products/3.jpg" alt="product" width="280" height="315">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist"
+                                                title="علاقه ها">
+                                                <i class="fa-light fa-heart"></i>
+                                            </a>
+                                        </div>
+                                        <div class="featured-wrap"><span class="featured-text">بنز</span><span class="featured-text featured-special ">ویژه</span></div>
+                                    </figure>
+                                    <div class="product-details rtl b-r-bottom">
+                                        <h3 class="product-name">
+                                            <a href="product.html">Benz S-Class</a>
+                                        </h3>
+                                        <div class="listing-features">
+                                            <div class="ratings-container">
+                                                <div class="ratings-full">
+                                                    <span class="ratings" style="width:60%"></span>
+                                                    <span class="tooltiptext tooltip-top"></span>
+                                                </div>
+                                                <a href="product.html" class="rating-reviews">(3.0 ) از 160 بررسی</a>
+                                            </div>
+                                        </div>
+                                        <div class="listing-details-group">
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-01.svg" alt="Auto"></span>
+                                                    <p>اتوماتیک</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-02.svg" alt="14 KM"></span>
+                                                    <p>14 KM</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-03.svg" alt="Diesel"></span>
+                                                    <p>بنزینی</p>
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-04.svg" alt="Basic"></span>
+                                                    <p>پایه</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-05.svg" alt="2022"></span>
+                                                    <p>2022</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-06.svg" alt="Persons"></span>
+                                                    <p>5 نفره</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="listing-price-details">
+                                            <p>شروع قیمت :  </p>
+                                            <span>2,900,000</span>
+                                            <p> تومان</p>
+                                        </div>
+                                        <div class="listing-location-details">
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-location-dot"></i>
+                                                </span>ایران , تهران
+                                            </div>
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-files"></i>
+                                                </span>
+                                                <h6>1,400,000 <span>ودیعه خلافی</span></h6>
+                                            </div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn btn-blue btn-blue-100 btn-quickview" title="مشاهده و انتخاب ">
+                                                جزئیات و اجاره
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                                    <figure class="product-media">
+                                        <a href="product.html">
+                                            <img src="images/products/4.jpg" alt="product" width="280" height="315">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist"
+                                                title="علاقه ها">
+                                                <i class="fa-light fa-heart"></i>
+                                            </a>
+                                        </div>
+                                        <div class="featured-wrap"><span class="featured-text">بنز</span><span class="featured-text featured-special ">ویژه</span></div>
+                                    </figure>
+                                    <div class="product-details rtl b-r-bottom">
+                                        <h3 class="product-name">
+                                            <a href="product.html">Benz S-Class</a>
+                                        </h3>
+                                        <div class="listing-features">
+                                            <div class="ratings-container">
+                                                <div class="ratings-full">
+                                                    <span class="ratings" style="width:60%"></span>
+                                                    <span class="tooltiptext tooltip-top"></span>
+                                                </div>
+                                                <a href="product.html" class="rating-reviews">(3.0 ) از 160 بررسی</a>
+                                            </div>
+                                        </div>
+                                        <div class="listing-details-group">
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-01.svg" alt="Auto"></span>
+                                                    <p>اتوماتیک</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-02.svg" alt="14 KM"></span>
+                                                    <p>14 KM</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-03.svg" alt="Diesel"></span>
+                                                    <p>بنزینی</p>
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-04.svg" alt="Basic"></span>
+                                                    <p>پایه</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-05.svg" alt="2022"></span>
+                                                    <p>2022</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-06.svg" alt="Persons"></span>
+                                                    <p>5 نفره</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="listing-price-details">
+                                            <p>شروع قیمت :  </p>
+                                            <span>2,900,000</span>
+                                            <p> تومان</p>
+                                        </div>
+                                        <div class="listing-location-details">
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-location-dot"></i>
+                                                </span>ایران , تهران
+                                            </div>
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-files"></i>
+                                                </span>
+                                                <h6>1,400,000 <span>ودیعه خلافی</span></h6>
+                                            </div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn btn-blue btn-blue-100 btn-quickview" title="مشاهده و انتخاب ">
+                                                جزئیات و اجاره
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                                    <figure class="product-media">
+                                        <a href="product.html">
+                                            <img src="images/products/5.jpg" alt="product" width="280" height="315">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist"
+                                                title="علاقه ها">
+                                                <i class="fa-light fa-heart"></i>
+                                            </a>
+                                        </div>
+                                        <div class="featured-wrap"><span class="featured-text">بنز</span><span class="featured-text featured-special ">ویژه</span></div>
+                                    </figure>
+                                    <div class="product-details rtl b-r-bottom">
+                                        <h3 class="product-name">
+                                            <a href="product.html">Benz S-Class</a>
+                                        </h3>
+                                        <div class="listing-features">
+                                            <div class="ratings-container">
+                                                <div class="ratings-full">
+                                                    <span class="ratings" style="width:60%"></span>
+                                                    <span class="tooltiptext tooltip-top"></span>
+                                                </div>
+                                                <a href="product.html" class="rating-reviews">(3.0 ) از 160 بررسی</a>
+                                            </div>
+                                        </div>
+                                        <div class="listing-details-group">
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-01.svg" alt="Auto"></span>
+                                                    <p>اتوماتیک</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-02.svg" alt="14 KM"></span>
+                                                    <p>14 KM</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-03.svg" alt="Diesel"></span>
+                                                    <p>بنزینی</p>
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-04.svg" alt="Basic"></span>
+                                                    <p>پایه</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-05.svg" alt="2022"></span>
+                                                    <p>2022</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-06.svg" alt="Persons"></span>
+                                                    <p>5 نفره</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="listing-price-details">
+                                            <p>شروع قیمت :  </p>
+                                            <span>2,900,000</span>
+                                            <p> تومان</p>
+                                        </div>
+                                        <div class="listing-location-details">
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-location-dot"></i>
+                                                </span>ایران , تهران
+                                            </div>
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-files"></i>
+                                                </span>
+                                                <h6>1,400,000 <span>ودیعه خلافی</span></h6>
+                                            </div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn btn-blue btn-blue-100 btn-quickview" title="مشاهده و انتخاب ">
+                                                جزئیات و اجاره
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
+                                    <figure class="product-media">
+                                        <a href="product.html">
+                                            <img src="images/products/6.jpg" alt="product" width="280" height="315">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist"
+                                                title="علاقه ها">
+                                                <i class="fa-light fa-heart"></i>
+                                            </a>
+                                        </div>
+                                        <div class="featured-wrap"><span class="featured-text">بنز</span><span class="featured-text featured-special ">ویژه</span></div>
+                                    </figure>
+                                    <div class="product-details rtl b-r-bottom">
+                                        <h3 class="product-name">
+                                            <a href="product.html">Benz S-Class</a>
+                                        </h3>
+                                        <div class="listing-features">
+                                            <div class="ratings-container">
+                                                <div class="ratings-full">
+                                                    <span class="ratings" style="width:60%"></span>
+                                                    <span class="tooltiptext tooltip-top"></span>
+                                                </div>
+                                                <a href="product.html" class="rating-reviews">(3.0 ) از 160 بررسی</a>
+                                            </div>
+                                        </div>
+                                        <div class="listing-details-group">
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-01.svg" alt="Auto"></span>
+                                                    <p>اتوماتیک</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-02.svg" alt="14 KM"></span>
+                                                    <p>14 KM</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-03.svg" alt="Diesel"></span>
+                                                    <p>بنزینی</p>
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-04.svg" alt="Basic"></span>
+                                                    <p>پایه</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-05.svg" alt="2022"></span>
+                                                    <p>2022</p>
+                                                </li>
+                                                <li>
+                                                    <span><img src="images/icons/car-parts-06.svg" alt="Persons"></span>
+                                                    <p>5 نفره</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="listing-price-details">
+                                            <p>شروع قیمت :  </p>
+                                            <span>2,900,000</span>
+                                            <p> تومان</p>
+                                        </div>
+                                        <div class="listing-location-details">
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-location-dot"></i>
+                                                </span>ایران , تهران
+                                            </div>
+                                            <div class="listing-price">
+                                                <span>
+                                                    <i class="fa-regular fa-files"></i>
+                                                </span>
+                                                <h6>1,400,000 <span>ودیعه خلافی</span></h6>
+                                            </div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn btn-blue btn-blue-100 btn-quickview" title="مشاهده و انتخاب ">
+                                                جزئیات و اجاره
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bg-white-r mb-4">
+                        <div class="col-md-12">
+                            <div class="section-title-main">
+                                <h3 class="section-subtitle p-relative">
+                                    سوالات متداول
+                                </h3>
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        سوالاتی که  <b>شما </b>پرسیده اید
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion accordion-simple">
+                            <div class="card border-no">
+                                <div class="card-header">
+                                    <a href="#collapse1-1" class="collapse">من میخام این خودرو  برای 3 روز اجاره کنم. هزینه چقدره و ایا محدودیت مسافت دارم؟ </a>
+                                </div>
+                                <div id="collapse1-1" class="card-body expanded">
+                                    <p class="mb-0">
+                                        سلام. هزینه اجاره این خودرو  برای 3 ال 6 روز، روزانه 8.500.000 تومان است و شامل محدودیت مسافت روزانه 200 کیلومتر می شود. در صورتی که روزانه بیشتر از 200 کیلومتر م سافت طی کنید، در زمان عودن خودرو  هزینه آن از شما دریافت می شود.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a href="#collapse1-2" class="expand">چه مبلغ چک باید برای اجاره این خودرو  بدم؟ و چک رو چه زمانی بهم برمیگردونین؟ </a>
+                                </div>
+                                <div class="card-body collapsed" id="collapse1-2">
+                                    <p class="mb-0">
+                                        سلام. چکی که برای اجاره این خودرو  ارائه می دهد باید معادل ارزش تقریبی خودرو  باشد و همزمان با عودت خودرو  به شما بازگردانده می شود.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a href="#collapse1-3" class="expand">من میخام ازتون بنز اس 500 برای ماشین عروس اجاره کنم گل ارایی  میتونید برام انجام بدید؟ </a>
+                                </div>
+                                <div id="collapse1-3" class="card-body collapsed">
+                                    <p class="mb-0">
+                                        سلام. بله با همکاران ما در واتساپ در ارتباط باشید تا گل آرایی مدنظر شما برای ماشین اجرا شود.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="comment-main bg-white-r">
+                        <div class="container">
+                            <div class="section-title-main">
+                                <h3 class="section-subtitle p-relative">
+                                    نظرات شما
+                                </h3>
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">
+                                        بعد از تجربه همکاری که    <b>با ما</b> داشتید.
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="code-template">
+                                <div class="owl-carousel owl-theme row cols-lg-3 cols-sm-2 cols-1" data-owl-options="{
+                            'rtl':true,
+                        'items': 3,
+                        'nav': false,
+                        'dots': true,
+                        'loop': true,
+                        'margin': 20,
+                        'autoplay': true,
+                        'autoplayTimeout':3000,
+                        'responsive': {
+                            '0': {
+                                'items': 1
+                            },
+                            '576': {
+                                'items': 2
+                            },
+                            '992': {
+                                'items': 3,
+                                'dots': false
+                            }
+                        }
+                    }">
+                                    <div class="testimonial testimonial-centered">
+                                        <div class="testimonial-info">
+                                            <figure class="testimonial-bg-thumbnail">
+                                                <img class=" b-r-half" src="images/agents/bg1.jpg" />
+                                            </figure>
+                                            <figure class="testimonial-author-thumbnail">
+                                                <img src="images/agents/4.jpg" alt="user" width="40" height="40" />
+                                            </figure>
+                                            <cite>
+                                                افسون هاشمی
+                                                <span>مشتری</span>
+                                            </cite>
+                                            <blockquote>
+                                                “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
+                                                ”
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial testimonial-centered testimonial-border">
+                                        <div class="testimonial-info">
+                                            <figure class="testimonial-bg-thumbnail">
+                                                <img class=" b-r-half" src="images/agents/bg2.jpg" />
+                                            </figure>
+                                            <figure class="testimonial-author-thumbnail">
+                                                <img src="images/agents/2.jpg" alt="user" width="40" height="40" />
+                                            </figure>
+                                            <cite>
+                                                افسون هاشمی
+                                                <span>مشتری</span>
+                                            </cite>
+                                            <blockquote>
+                                                “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
+                                                ”
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial testimonial-centered">
+                                        <div class="testimonial-info">
+                                            <figure class="testimonial-bg-thumbnail">
+                                                <img class=" b-r-half" src="images/agents/bg3.jpg" />
+                                            </figure>
+                                            <figure class="testimonial-author-thumbnail">
+                                                <img src="images/agents/4.jpg" alt="user" width="40" height="40" />
+                                            </figure>
+                                            <cite>
+                                                افسون هاشمی
+                                                <span>مشتری</span>
+                                            </cite>
+                                            <blockquote>
+                                                “ اعتماد من به این شرکت از تجربه‌های چندین ساله حاصل شده است. از حمایت فوق‌العاده تیم پشتیبانی گرفته تا تعهد به کیفیت بالا در محصولات، همه چیز نشان‌دهنده تعهد جدی این برند به رضایت مشتریان است.
+                                                ”
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main %}
