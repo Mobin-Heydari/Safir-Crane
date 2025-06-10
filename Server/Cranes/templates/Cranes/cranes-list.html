@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}{% endblock title %}
+{% block keywords %}{% endblock keywords %}
+{% block description %}{% endblock description %}
+
+
+{% block main %}
+<main class="main bg-gray rtl text-right">
+    <div class="container">
+        <div class="page-header section-bottom-margin">
+            <ul class="breadcrumb">
+                <li><a href="{% url "home:home" %}"><i class="fa-light fa-home"></i></a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li><a href="{% url "home:home" %}">صفحه ی اصلی</a></li>
+                <li class="delimiter"><i class="fa-regular fa-rhombus"></i></li>
+                <li>لیست جرثقیل ها</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container section-bottom-padding">
+            <div class="row cols-1 cols-xs-1 cols-sm-1 cols-md-2 cols-lg-3 product-wrapper">
+                {% for crane in cranes %}
+                    <div class="product-wrap">
+                        <div class="product">
+                            <figure class="product-media">
+                                <div class="owl-carousel owl-theme owl-dot-inner owl-dot-white row cols-1 gutter-no" data-owl-options="{'rtl':true, 'items': 1}">
+                                    <img src="{{ crane.image.url }}" alt="product" width="280" height="315" />
+                                </div>
+                            </figure>
+                            <div class="product-details rtl">
+                                <h3 class="product-name">
+                                    <a href="{{ crane.get_absolute_url }}">{{ crane.name }}</a>
+                                </h3>
+                                <div class="listing-features">
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a class="rating-reviews">( 5.0 )</a>
+                                    </div>
+                                </div>
+                                <div class="product-action">
+                                    <a href="{{ crane.get_absolute_url }}" class="btn btn-blue btn-blue-100">
+                                        جزئیات و اجاره
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <nav class="toolbox toolbox-pagination">
+                {% if cranes.has_other_pages %}
+                    <ul class="pagination mt-5 rtl">
+                        {% if cranes.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link page-link-prev" href="?page={{ cranes.previous_page_number }}" aria-label="Previous" tabindex="-1"
+                                    aria-disabled="true">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link page-link-prev" aria-label="Previous" tabindex="-1"
+                                    aria-disabled="true">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for i in cranes.paginator.page_range %}
+                            {% if cranes.number == i %}
+                                <li class="page-item active" aria-current="page">
+                                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item" aria-current="page">
+                                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if cranes.has_next %}
+                            <li class="page-item">
+                                <a class="page-link page-link-prev" href="?page={{ cranes.next_page_number }}" aria-label="Next">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link page-link-prev" aria-label="Next">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+</main>
+{% endblock main %}
