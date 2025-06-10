@@ -25,4 +25,5 @@ class CraneDetailView(View):
 
     def get(self, request, slug):
         crane = get_object_or_404(Crane, slug=slug)
-        return render(request, 'Cranes/crane-detail.html', {'crane': crane})
+        other_cranes = Crane.objects.all().order_by('?')
+        return render(request, 'Cranes/crane-detail.html', {'crane': crane, 'other_cranes': other_cranes})
