@@ -28,25 +28,25 @@
                             <a href="#" class="mobile-menu-toggle">
                                 <i class="fa-solid fa-bars"></i>
                             </a>
-                            <a href="index.html" class="logo">
+                            <a href="{% url "home:home" %}" class="logo">
                                 <img src="{% static "images/logos.png" %}" alt="logo" width="154" height="43">
                             </a>
                             <nav class="main-nav">
                                 <ul class="menu">
                                     <li>
-                                        <a href="/">خانه</a>
+                                        <a href="{% url "home:home" %}">خانه</a>
                                     </li>
                                     <li>
-                                        <a href="/">جرثقیل ها</a>
+                                        <a href="{% url "cranes:crane-list" %}">جرثقیل ها</a>
                                     </li>
                                     <li>
-                                        <a href="/">درباره ما</a>
+                                        <a href="{% url "aboutus:about" %}">درباره ما</a>
                                     </li>
                                     <li>
-                                        <a href="/">تماس با ما</a>
+                                        <a href="{% url "contacts:contact-us" %}">تماس با ما</a>
                                     </li>
                                     <li>
-                                        <a href="/">وبلاگ</a>
+                                        <a href="{% url "blogs:blog-list" %}">وبلاگ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -63,8 +63,8 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3">
-                            <a href="index.html" class="logo-footer">
-                                <img src="images/logo-footer.png" alt="logo-footer" width="154" height="43">
+                            <a href="{% url "home:home" %}" class="logo-footer">
+                                <img src="images/logo-footer.png" alt="Safir Crane" width="154" height="43">
                             </a>
                         </div>
                         <div class="col-lg-9">
@@ -98,10 +98,10 @@
                             <div class="widget">
                                 <h4 class="widget-title">لینک های مفید</h4>
                                 <ul class="widget-body ">
-                                    <li><a href="/">جرثقیل ها</a></li>
-                                    <li><a href="/">وبلاگ</a></li>
-                                    <li><a href="/">درباره</a></li>
-                                    <li><a href="/"> تماس با ما</a></li>
+                                    <li><a href="{% url "cranes:crane-list" %}">جرثقیل ها</a></li>
+                                    <li><a href="{% url "blogs:blog-list" %}">وبلاگ</a></li>
+                                    <li><a href="{% url "aboutus:about" %}">درباره</a></li>
+                                    <li><a href="{% url "contacts:contact-us" %}"> تماس با ما</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -139,19 +139,19 @@
         <div _ngcontent-ydb-c0="" class="lines"><div _ngcontent-ydb-c0="" class="line"></div><div _ngcontent-ydb-c0="" class="line"></div><div _ngcontent-ydb-c0="" class="line"></div><div _ngcontent-ydb-c0="" class="line"></div><div _ngcontent-ydb-c0="" class="line"></div></div>
     </footer>
     <div class="sticky-footer sticky-content fix-bottom rtl text-right">
-        <a href="/" class="sticky-link">
+        <a href="{% url "home:home" %}" class="sticky-link">
             <i class="fa-light fa-home"></i>
             <span>صفحه اصلی</span>
         </a>
-        <a href="/" class="sticky-link">
+        <a href="{% url "cranes:crane-list" %}" class="sticky-link">
             <i class="fa-light fa-sliders-up"></i>
             <span>جرثقیل ها</span>
         </a>
-        <a href="/" class="sticky-link">
+        <a href="{% url "aboutus:about" %}" class="sticky-link">
             <i class="fa-light fa-heart"></i>
             <span>درباره ی ما</span>
         </a>
-        <a href="/" class="sticky-link">
+        <a href="{% url "contacts:contact-us" %}" class="sticky-link">
             <i class="fa-light fa-user"></i>
             <span>تماس با ما</span>
         </a>
@@ -164,16 +164,19 @@
         <div class="mobile-menu-container scrollable">
             <ul class="mobile-menu mmenu-anim">
                 <li>
-                    <a href="/">صفحه اصلی</a>
+                    <a href="{% url "home:home" %}">صفحه اصلی</a>
                 </li>
                 <li>
-                    <a href="/">جرثقیل ها</a>
+                    <a href="{% url "cranes:crane-list" %}">جرثقیل ها</a>
                 </li>
                 <li>
-                    <a href="/">درباره ما</a>
+                    <a href="{% url "aboutus:about" %}">درباره ما</a>
                 </li>
                 <li>
-                    <a href="/">تماس با ما</a>
+                    <a href="{% url "contacts:contact-us" %}">تماس با ما</a>
+                </li>
+                <li>
+                    <a href="{% url "blogs:blog-list" %}">بلاگ ها</a>
                 </li>
             </ul>
         </div>
