@@ -26,6 +26,8 @@ class ContactView(View):
         """
         # Instantiate the form with submitted data
         form = ContactsForm(request.POST)
+
+        next_page = request.POST.get('next_page')
         
         if form.is_valid():
             # Retrieve cleaned data from the form
@@ -42,7 +44,10 @@ class ContactView(View):
             )
             instance.save()
             # Redirect to the same contact page after successful submission
-            return redirect('contacts:contact-us')
+            if next_page is None:
+                return redirect('contacts:contact-us')
+            else:
+                return redirect(str(next_page))
         
         # If the form is invalid, render the page with form errors displayed
         return render(request, 'Contacts/contact-us.html', {'form': form})
