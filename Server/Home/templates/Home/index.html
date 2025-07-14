@@ -14,14 +14,14 @@
         <section class="section-slider ">
             <div class="container section-slider-wrap">
                 <div class="col-lg-6 slider-info">
-                    <h1>آنچه را که به دنبالش هستید پیدا کنید</h1>
-                    <h3>بیش از 4000 جدیدترین خودرو  در نمایندگی ما </h3>
-                    <p>شرکت جرثقیل صفیر دارای بهترین جرثقیل های روز دنیا است.</p>
+                    <h1>اجاره جرثقیل های سبک و سنگین در تهران</h1>
+                    <h3>ارایه ی کلیه ی حدمات جرثقیل در تهران</h3>
+                    <p>شرکت جرثقیل سفیر  دارای به روز ترین ماشین آلات روز دنیا, آماده ارایه خدمات به هموطنان عزیز می باشد.</p>
                 </div>
                 <div class="col-lg-6 slider-img">
                     <figure>
                         <a href="#">
-                            <img src="{% static "images/car-silver.png" %}" class="product-hover-image" alt="product">
+                            <img src="{% static "images/home/5.png" %}" class="product-hover-image" alt="product">
                         </a>
                     </figure>
                 </div>
@@ -120,7 +120,7 @@
             background-repeat: no-repeat; background-color: #FFF;">
             <div class="benefit-container section-bottom-margin container p-relative ">
                 <figure class="floating d-flex justify-content-center" data-options='{"invertX":false,"invertY":false,"limitY":"0"}' data-floating-depth="0.1">
-                    <img src="{% static "images/benefit-img.png" %}" class="layer" alt="benefit" width="999" height="592">
+                    <img src="{% static "images/home/2.png" %}" class="layer" alt="crane" width="450" height="560">
                 </figure>
                 <div class="benefit-content row gutter-lg ltr">
                     <div class="col-md-6 col-12 benefit-left">
@@ -131,8 +131,8 @@
                             'delay': '.3s'
                         }">
                             <div class="icon-box-content pr-md-4 rtl">
-                                <h2 class="icon-box-title">سرویس</h2>
-                                <p>ماشین های ما بعد از هر سفر سرویس شده و وسایل مصرفی چک میشوند.</p>
+                                <h2 class="icon-box-title">اجاره</h2>
+                                <p>اجاره جرثقیل های سبک و سنگین.</p>
                             </div>
                             <div class="icon-box-icon">
                                 <span class="icon">
@@ -345,6 +345,7 @@
                             </div>
                             <form class="pl-lg-2" method="POST" action="{% url "contacts:contact-us" %}">
                                 {% csrf_token %}
+                                <input type="hidden" name="next_page" value="Home:home">
                                 <div class="row mb-2">
                                     <div class="col-md-6 mb-4">
                                         <label>نام <i class="fa-solid fa-star-of-life"></i></label>
