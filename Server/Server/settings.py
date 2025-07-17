@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'Cranes.apps.CranesConfig',
     'Contacts.apps.ContactsConfig',
     'Blogs.apps.BlogsConfig',
-    'FAQs.apps.FaqsConfig',
     'Home.apps.HomeConfig', 
     'Aboutus.apps.AboutusConfig', 
 ]
