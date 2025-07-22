@@ -5,8 +5,8 @@ from django.urls import reverse
 
 
 class Crane(models.Model):
-    name = models.CharField(verbose_name="نام")
-    slug = models.SlugField(verbose_name="اسلاگ", unique=True)
+    name = models.CharField(verbose_name="نام", max_length=250)
+    slug = models.SlugField(verbose_name="اسلاگ", unique=True, max_length=250)
 
     image = models.FileField(verbose_name="تصویر", upload_to="Cranes/images/")
 
@@ -44,7 +44,8 @@ class CraneContent(models.Model):
 
     title = models.CharField(
         verbose_name="عنوان", 
-        blank=True, null=True
+        blank=True, null=True,
+        max_length=250
     )
 
     content = models.TextField(
