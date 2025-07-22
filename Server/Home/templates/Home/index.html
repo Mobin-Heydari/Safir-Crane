@@ -15,10 +15,10 @@
             <div class="container section-slider-wrap">
                 <div class="col-lg-6 slider-info">
                     <h1>اجاره جرثقیل های سبک و سنگین در تهران</h1>
-                    <h3>ارایه ی کلیه ی حدمات جرثقیل در تهران</h3>
+                    <h3>ارایه ی کلیه ی خدمات جرثقیل در تهران</h3>
                     <p>شرکت جرثقیل سفیر  دارای به روز ترین ماشین آلات روز دنیا, آماده ارایه خدمات به هموطنان عزیز می باشد.</p>
                 </div>
-                <div class="col-lg-6 slider-img">
+                <div class="col-lg-5">
                     <figure>
                         <a href="#">
                             <img src="{% static "images/home/5.png" %}" class="product-hover-image" alt="product">
@@ -29,89 +29,60 @@
         </section>
         <section class="newarrival-section rtl text-right">
             <div class="container">
-                <div class="section-title-main">
-                    <h3 class="section-subtitle p-relative">
-                        محبوب ترین جرثقیل ها
-                    </h3>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">
-                            جرثقیل های <b>پرطرفداری</b> که شما انتخاب کرده اید .
-                        </h2>
-                        <a class="section-link" href={% url "cranes:crane-list" %}>
-                            نمایش همه
-                        </a>
-                    </div>
-                </div>
-                <div class="owl-carousel owl-theme category-slider row appear-animate" data-owl-options="{
-                    'nav': false,
-                    'dots': true,
-                    'margin': 20,
-                    'loop': true,
-                    'autoplay': true,
-                    'autoplayTimeout':3000,
-                    'rtl':true,
-                    'autoHeight':true,
-                    'responsive': {
-                        '0': {
-                            'items': 1
-                        },
-                        '480': {
-                            'items': 2
-                        },
-                        '576': {
-                            'items': 2
-                        },
-                        '768': {
-                            'items': 2
-                        },
-                        '992': {
-                            'items': 2,
-                            'dots': false
-                        },
-                        '1200': {
-                            'items': 3,
-                            'dots': false
-                        }
-                    }
-                }">
-                    {% for crane in cranes %}
-                        <div class="product product-popular appear-animate fadeIn appear-animation-visible" data-animation-options="{'delay': '.3s'}" style="animation-duration: 1.2s;">
-                            <figure class="product-media b-r-top">
-                                <a href="{{ crane.get_absolute_url }}">
-                                    <img src="{{ crane.image.url }}" alt="product" width="280" height="50%">
-                                </a>
-                            </figure>
-                            <div class="product-details rtl b-r-bottom">
-                                <h3 class="product-name">
-                                    <a href="{{ crane.get_absolute_url }}">{{ crane.name }}</a>
-                                </h3>
-                                <div class="listing-features">
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width:100%"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <p class="rating-reviews">(5.0)</p>
-                                    </div>
-                                </div>
-                                <div class="listing-location-details">
-                                    <div class="listing-price">
-                                        <span>
-                                            <i class="fa-regular fa-files"></i>
-                                        </span>
-                                        <p>
-                                            {{ crane.content }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="product-action">
-                                    <a href="{{ crane.get_absolute_url }}" class="btn btn-blue btn-blue-100" title="مشاهده و انتخاب ">
-                                        جزئیات و اجاره
-                                    </a>
-                                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <div class="about-img">
+                            <div class="about-exp">
+                                <span>درباره ما</span>
+                            </div>
+                            <div class="abt-img">
+                                <img src="{% static "images/about/9.jpg" %}" class="img-fluid banner-radius" alt="Happy Customer" width="580" height="507">
                             </div>
                         </div>
-                    {% endfor %}
+                    </div>
+                    <div class="col-md-5 text-right about-left">
+                        <div class="section-title-main">
+                            <h3 class="section-subtitle p-relative">
+                                درباره ما
+                            </h3>
+                            <div class="section-title-wrap">
+                                <h2 class="section-title font-weight-normal lh-2">
+                                    معرفی شرکت<b> جرثقیل سفیر</b>
+                                </h2>
+                            </div>
+                        </div>
+                        <p class="section-desc text-grey">
+                            ما در شرکت جرثقیل سفیر با بیش از 12 سال تجربه در زمینه اجاره و فروش انواع جرثقیل‌های سبک و سنگین، همراه مطمئن شما در پروژه‌های ساختمانی، صنعتی و عمرانی هستیم. تمرکز ما بر ارائه راهکارهای ایمن، به‌موقع و مقرون‌به‌صرفه است تا رضایت کامل مشتریان را کسب کنیم.
+                        </p>
+                        <div class="row about-main">
+                            <div class="col-md-12">
+                                <ul>
+                                    <li class="section-subtitle p-relative mb-6">
+                                        ارزش‌های کلیدی ما:
+                                    </li>
+                                    <li>ایمنی در اولویت</li>
+                                    <li>
+                                        <div>
+                                            <img loading="lazy" decoding="async" width="46" height="12" src="{% static "images/border.png" %}">
+                                        </div>
+                                    </li>
+                                    <li>شفافیت قیمت‌گذاری</li>
+                                    <li>
+                                        <div>
+                                            <img loading="lazy" decoding="async" width="46" height="12" src="{% static "images/border.png" %}">
+                                        </div>
+                                    </li>
+                                    <li>پشتیبانی 24/7</li>
+                                    <li>
+                                        <div>
+                                            <img loading="lazy" decoding="async" width="46" height="12" src="{% static "images/border.png" %}">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="{% url "aboutus:about" %}" class="btn btn-blue">بیشتر</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -131,7 +102,7 @@
                             'delay': '.3s'
                         }">
                             <div class="icon-box-content pr-md-4 rtl">
-                                <h2 class="icon-box-title">اجاره</h2>
+                                <h2 class="icon-box-title">تامین و اجاره</h2>
                                 <p>اجاره جرثقیل های سبک و سنگین.</p>
                             </div>
                             <div class="icon-box-icon">
@@ -147,9 +118,9 @@
                             'delay': '.3s'
                         }">
                             <div class="icon-box-content pr-md-4 rtl">
-                                <h2 class="icon-box-title">سوخت</h2>
+                                <h2 class="icon-box-title">خرید و فروش</h2>
                                 <p>
-                                    ماشین دریافتی از ما با باکی پر تحویل داده میشود
+                                    خرید و فروش انواع جرثقیل های سنگین و سبک.
                                 </p>
                             </div>
                             <div class="icon-box-icon">
@@ -165,8 +136,10 @@
                             'delay': '.3s'
                         }">
                             <div class="icon-box-content pr-md-4 mb-0 rtl">
-                                <h2 class="icon-box-title"> راننده </h2>
-                                <p> راننده های ما دارای پایه یک هستند و آموزش های تعمییر ماشین را دیده اند.</p>
+                                <h2 class="icon-box-title"> مشاوره </h2>
+                                <p>
+                                    ارایه ی مشاوره ی رایگان برای شما
+                                </p>
                             </div>
                             <div class="icon-box-icon">
                                 <span class="icon">
@@ -188,8 +161,10 @@
                                 </span>
                             </div>
                             <div class="icon-box-content pl-md-4">
-                                <h2 class="icon-box-title"> امنیت </h2>
-                                <p>تامین امنیت شما و خانواد هتان رادر سفر وظیفه خود میدانیم. </p>
+                                <h2 class="icon-box-title"> حمل و نقل </h2>
+                                <p>
+                                    حمل و نقل جرثقیل های سنگین و سبک.
+                                </p>
                             </div>
                         </div>
                         <div class="icon-box icon-box-side icon-border appear-animate benefit-icon5 skrollr"
@@ -204,24 +179,10 @@
                                 </span>
                             </div>
                             <div class="icon-box-content pl-md-4">
-                                <h2 class="icon-box-title">هدایا و جوایز </h2>
-                                <p>با ثبت شماره خود از جوایز دوره ای و هدایای ما با خبر شوید.</p>
-                            </div>
-                        </div>
-                        <div class="icon-box icon-box-side icon-border appear-animate benefit-icon6 skrollr"
-                                data-options='{"data-bottom-top":"transform: translate(24%, 0);","data-center":"transform: translate(0%, 0);"}'
-                                data-animation-options="{
-                            'name': 'zoomIn',
-                            'delay': '.3s'
-                        }">
-                            <div class="icon-box-icon">
-                                <span class="icon">
-                                    <i class="fa-solid fa-person-dolly"></i>
-                                </span>
-                            </div>
-                            <div class="icon-box-content pl-md-4">
-                                <h2 class="icon-box-title">خدمات </h2>
-                                <p>ارائه خدمات حمل وسایل و خرید های شما</p>
+                                <h2 class="icon-box-title">پشتیبانی</h2>
+                                <p>
+                                    پشتیبانی برای مشترکان و مشتریان مجموعه
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -386,7 +347,7 @@
                                     <img src="{% static "images/icons/icon-8/location.png" %}" class="ml-2"/>
                                     <div class="icon-box-content rtl">
                                         <h4 class="icon-box-title">آدرس شرکت :</h4>
-                                        <p>تهران خیابان ونک</p>
+                                        <p>تهران خیابان گاندی جرثقیل سفیر</p>
                                     </div>
                                 </div>
                                 <div class="icon-box icon-box-side">
